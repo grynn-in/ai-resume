@@ -1,0 +1,21 @@
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - cd amplify/backend-function
+        - npm install
+        - cd ../..
+frontend:
+  phases:
+    build:
+      commands:
+        - echo "No build needed for static HTML"
+  artifacts:
+    baseDirectory: /
+    files:
+      - index.html
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
