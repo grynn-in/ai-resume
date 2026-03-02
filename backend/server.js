@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import nodemailer from 'nodemailer';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import Anthropic from '@anthropic-ai/sdk';
@@ -204,6 +205,52 @@ ${JSON.stringify(resumeInfo, null, 2)}`;
             response: `Sorry, I encountered an error: ${error.message}`
         });
     }
+});
+
+app.post('/api/contact', async (req, res) => {
+    const { name, email, phone } = req.body;
+
+    if (!name || !email) {
+        return res.status(400).json({ error: 'Name and email are required' });
+    }
+
+    const entry = {
+        timestamp: new Date().toISOString(),
+        name,
+        email,
+        phone: phone || '',
+    };
+
+    // Log to contacts.json
+    const logPath = join(__dirname, 'contacts.json');
+    let contacts = [];
+    if (existsSync(logPath)) {
+        try { contacts = JSON.parse(readFileSync(logPath, 'utf-8')); } catch (e) {}
+    }
+    contacts.push(entry);
+    writeFileSync(logPath, JSON.stringify(contacts, null, 2));
+    console.log(`📬 New contact: ${name} <${email}>`);
+
+    // Send email notification if configured
+    if (process.env.GMAIL_USER && process.env.GMAIL_PASS && process.env.NOTIFY_EMAIL) {
+        try {
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
+            });
+            await transporter.sendMail({
+                from: process.env.GMAIL_USER,
+                to: process.env.NOTIFY_EMAIL,
+                subject: `CV Lead: ${name}`,
+                text: `New lead from your CV:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'not provided'}\n\nTime: ${entry.timestamp}`,
+            });
+            console.log(`📧 Email notification sent for ${name}`);
+        } catch (emailErr) {
+            console.error('Email notification failed:', emailErr.message);
+        }
+    }
+
+    res.json({ success: true });
 });
 
 app.get('/api/health', (req, res) => {
