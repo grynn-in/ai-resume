@@ -135,10 +135,12 @@ app.post('/api/fit', async (req, res) => {
 
 TASK: Analyze the job description against the candidate's resume. For every requirement, show what the job ASKS FOR and what the candidate HAS.
 
-CATEGORIES:
-1. **Direct Match** - Candidate has done this before (exact or near-exact experience)
-2. **Transferable Skills** - Candidate has related experience that covers this with minimal ramp-up
-3. **Gaps** - Genuinely missing; only include if it is a real gap (omit this section if no real gaps exist)
+SECTION NAMES — use EXACTLY these headings, no variations:
+1. ## Direct Match ✅
+2. ## Transferable Skills 💚
+3. ## Gaps ⚠️  (only include if genuine gaps exist — omit entirely if none)
+
+NEVER use "Average Fit", "Good Fit", "Perfect Fit" or any other heading names.
 
 FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 
@@ -177,7 +179,7 @@ ${JSON.stringify(resumeInfo, null, 2)}`;
 
         const stream = await anthropic.messages.create({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 1024,
+            max_tokens: 2048,
             system: fitSystemPrompt,
             messages: [
                 {
