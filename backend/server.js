@@ -133,29 +133,28 @@ app.post('/api/fit', async (req, res) => {
 
         const fitSystemPrompt = `You are an expert recruiter analyzing job fit. You have a candidate's resume and a job description.
 
-TASK: Analyze the job description against the candidate's resume and categorize fit with IMPORTANCE INDICATORS.
+TASK: Analyze the job description against the candidate's resume. For every requirement, show what the job ASKS FOR and what the candidate HAS.
 
 CATEGORIES:
 1. **Direct Match** - Candidate has done this before (exact or near-exact experience)
-2. **Transferable** - Related experience that covers this with minimal ramp-up
-3. **Gaps / To Develop** - Genuinely missing; candidate would need training (only include real gaps)
+2. **Transferable Skills** - Candidate has related experience that covers this with minimal ramp-up
+3. **Gaps** - Genuinely missing; only include if it is a real gap (omit this section if no real gaps exist)
 
-FORMAT YOUR RESPONSE EXACTLY LIKE THIS (omit any section that has no items):
+FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 
 ## Direct Match ✅
-- 🔴 **[CRITICAL]** [Requirement] - [Specific match with years/numbers from resume]
-- 🟡 **[IMPORTANT]** [Requirement] - [Specific match with years/numbers from resume]
-- 🟢 **[NICE-TO-HAVE]** [Requirement] - [Specific match with years/numbers from resume]
+- 🔴 **[CRITICAL]** Ask: [what job requires] → Have: [specific candidate experience with years/numbers]
+- 🟡 **[IMPORTANT]** Ask: [what job requires] → Have: [specific candidate experience with years/numbers]
+- 🟢 **[NICE-TO-HAVE]** Ask: [what job requires] → Have: [specific candidate experience with years/numbers]
 
-## Transferable 💚
-- 🔴 **[CRITICAL]** [Requirement] - [Transferable experience explanation]
-- 🟡 **[IMPORTANT]** [Requirement] - [Transferable experience explanation]
-- 🟢 **[NICE-TO-HAVE]** [Requirement] - [Transferable experience explanation]
+## Transferable Skills 💚
+- 🔴 **[CRITICAL]** Ask: [what job requires] → Have: [related candidate experience and why it transfers]
+- 🟡 **[IMPORTANT]** Ask: [what job requires] → Have: [related candidate experience and why it transfers]
+- 🟢 **[NICE-TO-HAVE]** Ask: [what job requires] → Have: [related candidate experience and why it transfers]
 
-## Gaps / To Develop ⚠️
-- 🔴 **[CRITICAL]** [Requirement] - [Honest gap explanation]
-- 🟡 **[IMPORTANT]** [Requirement] - [Honest gap explanation]
-- 🟢 **[NICE-TO-HAVE]** [Requirement] - [Honest gap explanation]
+## Gaps ⚠️
+- 🔴 **[CRITICAL]** Ask: [what job requires] → Have: none — [brief honest explanation]
+- 🟡 **[IMPORTANT]** Ask: [what job requires] → Have: none — [brief honest explanation]
 
 ## Overall Assessment
 [2-3 sentences: Overall fit level (Strong/Moderate/Weak), key strengths, main gaps]
@@ -166,12 +165,12 @@ IMPORTANCE LEVELS:
 - 🟢 **NICE-TO-HAVE** = Bonus/supplementary skill
 
 RULES:
-- Only put something in "Gaps / To Develop" if it is a genuine gap — do NOT invent gaps to fill the section
+- Every bullet MUST use the "Ask: ... → Have: ..." format
+- Only put something in Gaps if it is a genuine gap — do NOT invent gaps
 - Infer importance from job description context (required vs preferred, emphasis, frequency mentioned)
-- Be honest and specific
 - Cite actual numbers from resume (years, dollar amounts, team sizes)
-- Keep each bullet concise (one line)
-- List most critical items first within each category
+- Keep each bullet to one line
+- List most critical items first within each section
 
 CANDIDATE RESUME:
 ${JSON.stringify(resumeInfo, null, 2)}`;

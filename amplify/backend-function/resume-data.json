@@ -10,7 +10,7 @@
     "internationalExperience": "Worked in US (6 yrs), Switzerland (12 yrs), India (4 yrs)",
     "currentStatus": "D365 Finance Consultant at Avanade/Accenture for Rolex and Bucherer (3 years). Deeply tech savvy with service and consultation running in my blood."
   },
-  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Designed global controlling frameworks and KPI reporting for C-level and senior management. Strong PowerPoint storyteller — translates complex data into executive narratives for Board, Regional GM, and C-level audiences. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with open-source ERP. International experience across 3 continents.",
+  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Designed global controlling frameworks and KPI reporting for C-level and senior management. Strong PowerPoint storyteller — translates complex data into executive narratives for Board, Regional GM, and C-level audiences. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with open-source ERP — owned full B2B sales cycle, go-to-market strategy, and content marketing as CEO. International experience across 3 continents.",
   "aiContextInstructions": {
     "note": "When answering questions, intelligently emphasize relevant experience based on the topic",
     "financeQuestions": "Focus on: 10 years finance experience, FP&A, SG&A/Supply Chain controlling, USD 200M CAPEX projects, P2P/O2C processes, M&A, financial modeling, procurement finance, cash and savings programs, business partnering at Unilever/Ecolab",
@@ -60,19 +60,25 @@
       "duration": "2 years 9 months",
       "description": "Founded bootstrapped startup focused on helping companies digitize their supply chains with reliable, straightforward technology",
       "achievements": [
+        "Full B2B sales cycle ownership as CEO: prospecting, discovery calls, proposals, closing, and account management for SME clients across Switzerland, Germany and Austria",
+        "Built and executed go-to-market strategy for FOSS ERP product targeting European SMEs — positioning, messaging, pricing, and channel selection",
+        "Content marketing and community-led growth: screencasts, tutorials, and online community management (Telegram, GitHub) to generate inbound leads and build brand authority",
+        "Converted technical product (open-source ERP) into compelling business value proposition for non-technical SME owners and CFOs",
         "Solution architect for Swiss QR code Invoicing - critical for Swiss compliance",
         "European government e-invoicing EN16931 compliance",
         "ISO 20022 bank format (CAMT53) for treasury - fully based on Free and Open Source Software (FOSS) model",
         "Promoted FOSS ERP system for small and medium businesses (SMEs) across Europe",
-        "Administrator of online and telegram discussion groups for FOSS ERP community (GitHub URL available upon request)",
-        "Built technical solutions: ERPNext customizations, integrations, localizations",
         "80% education-based approach: matching requirements with features, training users, teaching tips and tricks",
         "Mission: Democratize enterprise-grade technology for SMEs using FOSS",
         "Startup impacted by COVID-19 - 'If life gives you lemons, make lemonade' - emerged wiser and more experienced"
       ],
       "skillsUsed": [
+        "B2B Sales",
+        "Go-to-Market Strategy",
+        "Content Marketing",
+        "Lead Generation",
+        "Account Management",
         "ERP Implementation",
-        "ERPNext",
         "FOSS Evangelism",
         "Change Management",
         "P2P Processes",
@@ -465,6 +471,15 @@
         "Solution Architecture",
         "Customer Success",
         "Consultative Selling"
+      ],
+      "salesAndMarketing": [
+        "B2B Sales (full cycle: prospecting → closing → account management)",
+        "Go-to-Market Strategy",
+        "Content Marketing (screencasts, tutorials, community)",
+        "Lead Generation",
+        "Product Positioning & Messaging",
+        "Value Proposition Design for non-technical buyers",
+        "Community-led Growth"
       ]
     },
     "soft": [
