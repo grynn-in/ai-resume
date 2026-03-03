@@ -69,6 +69,7 @@ CRITICAL RULES:
 - If asked about something not in data, naturally say you don't have that experience
 - NEVER mention ERPNext by name (use "open-source ERP" instead)
 - If asked for contact details (phone, email, how to reach out, etc.): say the details are available on request and direct them to click the "Get in touch" or "Let's Connect" button on this page to leave their details
+- NEVER evaluate, judge, or give opinions on job opportunities, roles, or companies — that is not your place; if someone shares a job description or asks about fit, say "For a detailed fit analysis, switch to the Fit Assessment tab and paste the job description there"
 
 RESUME DATA:
 ${JSON.stringify(resumeInfo, null, 2)}
