@@ -34,109 +34,6 @@
                 repeating-linear-gradient(90deg, transparent, transparent 79px, #1a1a1a 79px, #1a1a1a 80px);
         }
 
-        .grid-toggle-btn {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            width: 32px;
-            height: 32px;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #a0a0a0;
-        }
-
-        .grid-toggle-btn:hover {
-            background: #1a1a1a;
-        }
-
-        /* Contact Modal */
-        .contact-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .contact-modal-overlay.open { display: flex; }
-        .contact-modal {
-            background: #0f0f0f;
-            border: 1px solid #2a2a2a;
-            border-radius: 16px;
-            padding: 32px;
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-        }
-        .contact-modal h3 { font-size: 20px; color: #ffffff; margin-bottom: 8px; }
-        .contact-modal > p { color: #a0a0a0; font-size: 14px; margin-bottom: 24px; }
-        .contact-modal-close {
-            position: absolute; top: 16px; right: 16px;
-            background: none; border: none; color: #a0a0a0;
-            font-size: 20px; cursor: pointer; padding: 4px 8px;
-        }
-        .contact-modal-close:hover { color: #ffffff; }
-        .contact-form-group { margin-bottom: 16px; }
-        .contact-form-group label { display: block; font-size: 13px; color: #a0a0a0; margin-bottom: 6px; }
-        .contact-form-group input {
-            width: 100%; padding: 10px 14px;
-            background: #1a1a1a; border: 1px solid #2a2a2a;
-            border-radius: 8px; color: #e0e0e0; font-size: 14px; outline: none;
-        }
-        .contact-form-group input:focus { border-color: #2563eb; }
-        .contact-form-group input.error { border-color: #ef4444; }
-        .contact-submit-btn {
-            width: 100%; padding: 12px; background: #2563eb;
-            color: white; border: none; border-radius: 8px;
-            font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 8px;
-        }
-        .contact-submit-btn:hover:not(:disabled) { background: #1d4ed8; }
-        .contact-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .contact-success { text-align: center; padding: 20px 0; }
-        .contact-success .check { font-size: 48px; margin-bottom: 16px; }
-        .contact-success p { color: #e0e0e0; margin-bottom: 0; font-size: 15px; }
-
-        /* Floating contact button */
-        .floating-contact-btn {
-            position: fixed; bottom: 32px; left: 32px;
-            background: #2563eb; color: white; border: none;
-            border-radius: 50px; padding: 12px 20px;
-            font-size: 14px; font-weight: 500; cursor: pointer;
-            z-index: 100; display: flex; align-items: center; gap: 8px;
-            box-shadow: 0 4px 20px rgba(37,99,235,0.4);
-        }
-        .floating-contact-btn:hover { background: #1d4ed8; }
-
-        /* Get in touch button in header */
-        .get-in-touch-btn {
-            display: flex; align-items: center; gap: 6px;
-            padding: 6px 14px; background: #2563eb;
-            border-radius: 6px; border: none; color: white;
-            font-size: 14px; cursor: pointer; font-weight: 500;
-        }
-        .get-in-touch-btn:hover { background: #1d4ed8; }
-
-        /* Chat nudge */
-        .chat-nudge {
-            background: #0f1f3d; border: 1px solid #1e3a6e;
-            border-radius: 12px; padding: 14px 16px; margin-bottom: 16px;
-            display: flex; align-items: center; justify-content: space-between; gap: 12px;
-        }
-        .chat-nudge p { font-size: 13px; color: #93c5fd; margin: 0; }
-        .chat-nudge-btn {
-            background: #2563eb; color: white; border: none;
-            border-radius: 8px; padding: 8px 14px; font-size: 13px;
-            cursor: pointer; white-space: nowrap; font-weight: 500;
-        }
-        .chat-nudge-btn:hover { background: #1d4ed8; }
-
         .main-container {
             display: flex;
             height: 100vh;
@@ -330,6 +227,27 @@
             margin-bottom: 16px;
         }
 
+        .grid-toggle-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 32px;
+            height: 32px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+        }
+
+        .grid-toggle-btn:hover {
+            background: #242424;
+        }
+
         .mode-toggle {
             display: flex;
             gap: 10px;
@@ -338,33 +256,31 @@
         }
 
         .mode-btn {
-            padding: 10px 24px;
+            padding: 8px 16px;
             background: #1a1a1a;
-            color: #a0a0b0;
-            border: 2px solid #333333;
-            border-radius: 20px;
+            color: #a0a0a0;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 500;
         }
 
         .mode-btn:hover {
-            background: #222222;
-            border-color: #444444;
+            background: #242424;
         }
 
         .mode-btn.active {
-            background: #333333;
+            background: #2563eb;
             color: #ffffff;
-            border-color: #555555;
+            border-color: #2563eb;
         }
 
         .chat-container {
             flex: 1;
             overflow-y: auto;
-            padding: 25px;
-            background: #000000;
+            padding: 20px;
+            background: transparent;
         }
 
         .chat-container::-webkit-scrollbar {
@@ -372,30 +288,18 @@
         }
 
         .chat-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
+            background: #0a0a0a;
         }
 
         .chat-container::-webkit-scrollbar-thumb {
-            background: #333333;
+            background: #2a2a2a;
             border-radius: 5px;
         }
 
         .message {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             display: flex;
-            gap: 12px;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            gap: 10px;
         }
 
         .message.user {
@@ -403,18 +307,18 @@
         }
 
         .message-content {
-            max-width: 75%;
-            padding: 14px 18px;
-            border-radius: 18px;
-            line-height: 1.8;
-            font-size: 15px;
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.6;
+            font-size: 14px;
             white-space: pre-wrap;
         }
 
         .bot .message-content {
-            background: #2a2a2a;
+            background: #0f0f0f;
             color: #e0e0e0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid #1a1a1a;
         }
 
         .bot .message-content p {
@@ -425,60 +329,69 @@
             margin-bottom: 0;
         }
 
+        .bot .message-content.fit-analysis ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .bot .message-content.fit-analysis li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
         .user .message-content {
-            background: #444444;
+            background: #2563eb;
             color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         .avatar {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 16px;
             flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .bot .avatar {
-            background: #333333;
+            background: #1a1a1a;
         }
 
         .user .avatar {
-            background: #555555;
+            background: #1d4ed8;
         }
 
         .input-container {
-            padding: 25px;
-            background: #0a0a0a;
-            border-top: 1px solid #222222;
+            padding: 20px;
+            background: #0f0f0f;
+            border-top: none;
             display: flex;
             gap: 12px;
+            margin: 0 20px 20px 20px;
+            border-radius: 12px;
+            border: 1px solid #1a1a1a;
         }
 
         #userInput {
             flex: 1;
-            padding: 14px 20px;
-            border: 2px solid #333333;
-            border-radius: 25px;
-            font-size: 15px;
+            padding: 10px 14px;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            font-size: 14px;
             outline: none;
             background: #1a1a1a;
-            color: #fff;
-            transition: all 0.3s;
+            color: #e0e0e0;
         }
 
         #userInput::placeholder {
-            color: rgba(255, 255, 255, 0.4);
+            color: #666666;
         }
 
         #userInput:focus {
-            border-color: #555555;
-            background: #222222;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+            border-color: #2563eb;
+            background: #1a1a1a;
         }
 
         #sendButton {
@@ -530,6 +443,88 @@
             }
         }
 
+        /* Contact Modal */
+        .contact-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-modal-overlay.open { display: flex; }
+        .contact-modal {
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .contact-modal h3 { font-size: 20px; color: #ffffff; margin-bottom: 8px; }
+        .contact-modal > p { color: #a0a0a0; font-size: 14px; margin-bottom: 24px; }
+        .contact-modal-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none; color: #a0a0a0;
+            font-size: 20px; cursor: pointer; padding: 4px 8px;
+        }
+        .contact-modal-close:hover { color: #ffffff; }
+        .contact-form-group { margin-bottom: 16px; }
+        .contact-form-group label { display: block; font-size: 13px; color: #a0a0a0; margin-bottom: 6px; }
+        .contact-form-group input {
+            width: 100%; padding: 10px 14px;
+            background: #1a1a1a; border: 1px solid #2a2a2a;
+            border-radius: 8px; color: #e0e0e0; font-size: 14px; outline: none;
+        }
+        .contact-form-group input:focus { border-color: #2563eb; }
+        .contact-form-group input.error { border-color: #ef4444; }
+        .contact-submit-btn {
+            width: 100%; padding: 12px; background: #2563eb;
+            color: white; border: none; border-radius: 8px;
+            font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 8px;
+        }
+        .contact-submit-btn:hover:not(:disabled) { background: #1d4ed8; }
+        .contact-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .contact-success { text-align: center; padding: 20px 0; }
+        .contact-success .check { font-size: 48px; margin-bottom: 16px; }
+        .contact-success p { color: #e0e0e0; margin-bottom: 0; font-size: 15px; }
+
+        /* Floating contact button */
+        .floating-contact-btn {
+            position: fixed; bottom: 32px; left: 32px;
+            background: #2563eb; color: white; border: none;
+            border-radius: 50px; padding: 12px 20px;
+            font-size: 14px; font-weight: 500; cursor: pointer;
+            z-index: 100; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+        }
+        .floating-contact-btn:hover { background: #1d4ed8; }
+
+        /* Get in touch button in header */
+        .get-in-touch-btn {
+            display: flex; align-items: center; gap: 6px;
+            padding: 6px 14px; background: #2563eb;
+            border-radius: 6px; border: none; color: white;
+            font-size: 14px; cursor: pointer; font-weight: 500;
+        }
+        .get-in-touch-btn:hover { background: #1d4ed8; }
+
+        /* Chat nudge */
+        .chat-nudge {
+            background: #0f1f3d; border: 1px solid #1e3a6e;
+            border-radius: 12px; padding: 14px 16px; margin-bottom: 16px;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        }
+        .chat-nudge p { font-size: 13px; color: #93c5fd; margin: 0; }
+        .chat-nudge-btn {
+            background: #2563eb; color: white; border: none;
+            border-radius: 8px; padding: 8px 14px; font-size: 13px;
+            cursor: pointer; white-space: nowrap; font-weight: 500;
+        }
+        .chat-nudge-btn:hover { background: #1d4ed8; }
+
         @media (max-width: 1024px) {
             .main-container {
                 flex-direction: column;
@@ -556,14 +551,23 @@
             <div class="info-grid">
                 <div class="info-box">
                     <h2>About</h2>
-                    <p>20 years bridging finance and technology. <strong>10 years in Finance</strong> (Unilever, Ecolab) + <strong>10 years in IT/BI</strong>. MBA from St. Gallen. Led <strong>$200M strategic projects</strong>. Founded startup for SME digital transformation with open-source ERP.</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; color: #a0a0a0; line-height: 1.8;">
+                        <li>20 years bridging finance and technology</li>
+                        <li>10 years in Finance (Unilever, Ecolab)</li>
+                        <li>10 years in IT/BI</li>
+                        <li>MBA from St. Gallen</li>
+                        <li>Led $200M strategic projects</li>
+                        <li>Founded startup for SME digital transformation with open-source ERP</li>
+                    </ul>
                 </div>
 
                 <div class="info-box">
                     <h2>Skills</h2>
-                    <p><strong>Finance:</strong> FP&A, SG&A Controlling, Supply Chain Finance, M&A, P2P/O2C</p>
-                    <p style="margin-top: 12px;"><strong>Technology:</strong> SQL, Data Warehousing, KNIME, Alteryx, Machine Learning, ERP</p>
-                    <p style="margin-top: 12px;"><strong>Business:</strong> IPMA Project Management, Change Management, FOSS Evangelism</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; color: #a0a0a0; line-height: 1.8;">
+                        <li>Finance: FP&A, SG&A Controlling, Supply Chain Finance, M&A, P2P/O2C</li>
+                        <li>Technology: SQL, Data Warehousing, KNIME, Alteryx, Machine Learning, ERP</li>
+                        <li>Business: IPMA Project Management, Change Management, FOSS Evangelism</li>
+                    </ul>
                 </div>
             </div>
 
@@ -571,28 +575,28 @@
                 <h2>Experience</h2>
 
                 <div class="experience-item">
-                    <strong>Avanade (Accenture) 01/2022-Present</strong> - Finance Consultant, D365 ERP<br>
-                    <span style="color: #a0a0b0; font-size: 14px;">Finance modules for Bucherer AG (Rolex subsidiary) | Automation: treasury, DMS, AP, expense mgmt | Agile/Scrum</span>
+                    <strong>Avanade (Accenture) 01/2022-Present (4.1 yrs)</strong> - Finance Consultant, D365 ERP<br>
+                    <span style="color: #6c757d; font-size: 14px;">Led D365 Finance & Operations implementation for Bucherer AG (Rolex subsidiary). Configured core finance modules including General Ledger, Fixed Assets, and Cash & Bank Management. Designed and implemented end-to-end automation solutions for treasury operations, document management systems (DMS), accounts payable workflows, and expense management processes. Delivered sprints for multi-million dollar ERP transformation using Agile/Scrum methodology.</span>
                 </div>
 
                 <div class="experience-item">
-                    <strong>Entrepreneurship 04/2019-12/2021</strong> - Founder & Solution Architect<br>
-                    <span style="color: #a0a0b0; font-size: 14px;">Swiss QR invoicing, EN16931, ISO 20022 | FOSS ERP for SMEs across Europe</span>
+                    <strong>Entrepreneurship 04/2019-12/2021 (2.8 yrs)</strong> - Founder & Solution Architect<br>
+                    <span style="color: #6c757d; font-size: 14px;">Founded fintech startup focused on digital transformation for European SMEs. Developed compliance solutions for Swiss QR invoicing standards, European e-invoicing directive (EN16931), and ISO 20022 payment messaging. Architected and deployed open-source ERP systems (Odoo, ERPNext) for clients across Switzerland, Germany, and Austria. Reduced software costs by 60% while improving financial process automation.</span>
                 </div>
 
                 <div class="experience-item">
-                    <strong>Ecolab 01/2014-03/2019</strong> - 3 Controller Roles<br>
-                    <span style="color: #a0a0b0; font-size: 14px;">Strategic Projects ($200M CAPEX, M&A) | Supply Chain ($250M COGS, 3 plants) | SG&A</span>
+                    <strong>Ecolab 01/2014-03/2019 (5.2 yrs)</strong> - 3 Controller Roles<br>
+                    <span style="color: #6c757d; font-size: 14px;">Advanced through three finance leadership positions. Managed $200M+ CAPEX portfolio and M&A integrations as Strategic Projects Controller. Oversaw $250M COGS across 3 manufacturing plants with inventory optimization and variance analysis as Supply Chain Controller. Drove cost management and budget planning as SG&A Controller. Built financial models, led month-end close processes, and partnered with operations to improve profitability.</span>
                 </div>
 
                 <div class="experience-item">
-                    <strong>Unilever 06/2009-12/2013</strong> - Finance Manager<br>
-                    <span style="color: #a0a0b0; font-size: 14px;">Procurement Finance | Spend BI leader | $16M working capital improvement | 3 roles, 2 promotions</span>
+                    <strong>Unilever 06/2009-12/2013 (4.5 yrs)</strong> - Finance Manager<br>
+                    <span style="color: #6c757d; font-size: 14px;">Managed procurement finance across European operations, partnering with category managers to optimize $500M+ annual spend. Led business intelligence initiatives by designing dashboards and spend analytics using SQL and data warehousing. Delivered $16M working capital improvement through payment term negotiations and supplier consolidation. Earned 2 promotions across 3 progressive roles, recognized for process automation and stakeholder management.</span>
                 </div>
 
                 <div class="experience-item">
-                    <strong>IT/Software Career 1998-2008</strong> - 10 Years in Tech<br>
-                    <span style="color: #a0a0b0; font-size: 14px;">Bank of America, Separation Technologies (Boston), Internet Tech Group, Microland, Dhruva</span>
+                    <strong>IT/Software Career 1998-2008 (10 yrs)</strong> - 10 Years in Tech<br>
+                    <span style="color: #6c757d; font-size: 14px;">Built technical foundation across software development, data engineering, and system architecture roles at Bank of America (financial systems), Separation Technologies in Boston (biotech lab automation), Internet Tech Group (web applications), Microland (IT infrastructure), and Dhruva (software engineering). Developed expertise in SQL, database design, software development lifecycle, and enterprise system integration. Enabled future finance-to-tech transition through deep technical skillset.</span>
                 </div>
             </div>
         </div>
@@ -742,7 +746,8 @@
             // Create empty message for streaming
             const streamMsg = document.createElement('div');
             streamMsg.className = 'message bot';
-            streamMsg.innerHTML = '<div class="avatar">🤖</div><div class="message-content" id="streaming"></div>';
+            const contentClass = currentMode === 'fit' ? 'message-content fit-analysis' : 'message-content';
+            streamMsg.innerHTML = `<div class="avatar">🤖</div><div class="${contentClass}" id="streaming"></div>`;
             chatContainer.appendChild(streamMsg);
             const streamContent = document.getElementById('streaming');
 
@@ -782,6 +787,37 @@
                     }
                 }
 
+                // Format fit analysis as bullet points
+                if (currentMode === 'fit' && fullText) {
+                    const lines = fullText.split('\n').filter(line => line.trim());
+                    let formattedHtml = '';
+                    let inList = false;
+
+                    lines.forEach(line => {
+                        const trimmed = line.trim();
+                        // Check if line starts with bullet indicators
+                        if (trimmed.match(/^[-•*]\s/) || trimmed.match(/^\d+\.\s/)) {
+                            if (!inList) {
+                                formattedHtml += '<ul>';
+                                inList = true;
+                            }
+                            formattedHtml += `<li>${trimmed.replace(/^[-•*]\s/, '').replace(/^\d+\.\s/, '')}</li>`;
+                        } else if (trimmed.length > 0) {
+                            if (inList) {
+                                formattedHtml += '</ul>';
+                                inList = false;
+                            }
+                            formattedHtml += `<p>${trimmed}</p>`;
+                        }
+                    });
+
+                    if (inList) {
+                        formattedHtml += '</ul>';
+                    }
+
+                    streamContent.innerHTML = formattedHtml;
+                }
+
                 streamContent.removeAttribute('id');
                 if (currentMode === 'chat') showChatNudge();
             } catch (err) {
@@ -791,7 +827,6 @@
                 userInput.focus();
             }
         }
-
         function openContactModal() {
             document.getElementById('contactModalOverlay').classList.add('open');
             setTimeout(() => document.getElementById('contactName').focus(), 100);
