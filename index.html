@@ -20,6 +20,123 @@
             color: #e0e0e0;
         }
 
+        body.grid-lines {
+            background-color: #000000;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 19px, #1a1a1a 19px, #1a1a1a 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 79px, #1a1a1a 79px, #1a1a1a 80px);
+        }
+
+        body.grid-dots {
+            background-color: #000000;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 19px, #1a1a1a 19px, #1a1a1a 20px),
+                repeating-linear-gradient(90deg, transparent, transparent 79px, #1a1a1a 79px, #1a1a1a 80px);
+        }
+
+        .grid-toggle-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 32px;
+            height: 32px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+        }
+
+        .grid-toggle-btn:hover {
+            background: #1a1a1a;
+        }
+
+        /* Contact Modal */
+        .contact-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-modal-overlay.open { display: flex; }
+        .contact-modal {
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .contact-modal h3 { font-size: 20px; color: #ffffff; margin-bottom: 8px; }
+        .contact-modal > p { color: #a0a0a0; font-size: 14px; margin-bottom: 24px; }
+        .contact-modal-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none; color: #a0a0a0;
+            font-size: 20px; cursor: pointer; padding: 4px 8px;
+        }
+        .contact-modal-close:hover { color: #ffffff; }
+        .contact-form-group { margin-bottom: 16px; }
+        .contact-form-group label { display: block; font-size: 13px; color: #a0a0a0; margin-bottom: 6px; }
+        .contact-form-group input {
+            width: 100%; padding: 10px 14px;
+            background: #1a1a1a; border: 1px solid #2a2a2a;
+            border-radius: 8px; color: #e0e0e0; font-size: 14px; outline: none;
+        }
+        .contact-form-group input:focus { border-color: #2563eb; }
+        .contact-form-group input.error { border-color: #ef4444; }
+        .contact-submit-btn {
+            width: 100%; padding: 12px; background: #2563eb;
+            color: white; border: none; border-radius: 8px;
+            font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 8px;
+        }
+        .contact-submit-btn:hover:not(:disabled) { background: #1d4ed8; }
+        .contact-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .contact-success { text-align: center; padding: 20px 0; }
+        .contact-success .check { font-size: 48px; margin-bottom: 16px; }
+        .contact-success p { color: #e0e0e0; margin-bottom: 0; font-size: 15px; }
+
+        /* Floating contact button */
+        .floating-contact-btn {
+            position: fixed; bottom: 32px; left: 32px;
+            background: #2563eb; color: white; border: none;
+            border-radius: 50px; padding: 12px 20px;
+            font-size: 14px; font-weight: 500; cursor: pointer;
+            z-index: 100; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+        }
+        .floating-contact-btn:hover { background: #1d4ed8; }
+
+        /* Get in touch button in header */
+        .get-in-touch-btn {
+            display: flex; align-items: center; gap: 6px;
+            padding: 6px 14px; background: #2563eb;
+            border-radius: 6px; border: none; color: white;
+            font-size: 14px; cursor: pointer; font-weight: 500;
+        }
+        .get-in-touch-btn:hover { background: #1d4ed8; }
+
+        /* Chat nudge */
+        .chat-nudge {
+            background: #0f1f3d; border: 1px solid #1e3a6e;
+            border-radius: 12px; padding: 14px 16px; margin-bottom: 16px;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+        }
+        .chat-nudge p { font-size: 13px; color: #93c5fd; margin: 0; }
+        .chat-nudge-btn {
+            background: #2563eb; color: white; border: none;
+            border-radius: 8px; padding: 8px 14px; font-size: 13px;
+            cursor: pointer; white-space: nowrap; font-weight: 500;
+        }
+        .chat-nudge-btn:hover { background: #1d4ed8; }
+
         .main-container {
             display: flex;
             height: 100vh;
@@ -431,8 +548,8 @@
                 <div class="subtitle">MBA, Zurich Switzerland | D365 F&O | Digital Transformation</div>
                 <div class="contact">
                     <span>📍 Zurich, Switzerland</span>
-                    <span>📞 +41 79 227 1355</span>
-                    <span>💼 LinkedIn</span>
+                    <button class="get-in-touch-btn" onclick="openContactModal()">✉️ Get in touch</button>
+                    <a href="https://www.linkedin.com/in/realdeepakpai/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:6px;padding:6px 12px;background:#1a1a1a;border-radius:6px;border:1px solid #2a2a2a;color:#a0a0a0;text-decoration:none;font-size:14px;">💼 LinkedIn</a>
                 </div>
             </div>
 
@@ -482,6 +599,7 @@
 
         <div class="chat-section">
             <div class="chat-header">
+                <button class="grid-toggle-btn" onclick="toggleGrid()" title="Toggle Grid Style">⊞</button>
                 <h2 id="chatTitle">🤖 Ask Me Anything</h2>
                 <p id="chatSubtitle">Chat to learn more about my experience</p>
                 <div class="mode-toggle">
@@ -504,13 +622,67 @@
         </div>
     </div>
 
+    <!-- Floating contact button -->
+    <button class="floating-contact-btn" onclick="openContactModal()">✉️ Let's Connect</button>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModalOverlay" onclick="if(event.target===this) closeContactModal()">
+        <div class="contact-modal">
+            <button class="contact-modal-close" onclick="closeContactModal()">✕</button>
+            <div id="contactFormView">
+                <h3>Let's Connect</h3>
+                <p>Leave your details and I'll get back to you.</p>
+                <div class="contact-form-group">
+                    <label>Name *</label>
+                    <input type="text" id="contactName" placeholder="Your name">
+                </div>
+                <div class="contact-form-group">
+                    <label>Email *</label>
+                    <input type="email" id="contactEmail" placeholder="your@email.com">
+                </div>
+                <div class="contact-form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="contactPhone" placeholder="+41 ...">
+                </div>
+                <button class="contact-submit-btn" id="contactSubmitBtn" onclick="submitContact()">Send Details</button>
+            </div>
+            <div id="contactSuccessView" style="display:none">
+                <div class="contact-success">
+                    <div class="check">✅</div>
+                    <p id="contactSuccessMsg">Thanks! I'll be in touch soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const API_URL = 'http://localhost:3000/api/chat';
         const FIT_API_URL = 'http://localhost:3000/api/fit';
+        const CONTACT_API_URL = 'http://localhost:3000/api/contact';
+        let contactNudgeShown = false;
         const chatContainer = document.getElementById('chatContainer');
         const userInput = document.getElementById('userInput');
         const sendButton = document.getElementById('sendButton');
         let currentMode = 'chat';
+        let currentGrid = 'grid-lines';
+
+        // Initialize grid pattern from localStorage
+        function initGrid() {
+            const savedGrid = localStorage.getItem('gridPattern') || 'grid-lines';
+            currentGrid = savedGrid;
+            document.body.classList.add(currentGrid);
+        }
+
+        // Toggle between grid patterns
+        function toggleGrid() {
+            document.body.classList.remove(currentGrid);
+            currentGrid = currentGrid === 'grid-lines' ? 'grid-dots' : 'grid-lines';
+            document.body.classList.add(currentGrid);
+            localStorage.setItem('gridPattern', currentGrid);
+        }
+
+        // Initialize grid on page load
+        initGrid();
 
         function addMessage(content, isUser) {
             const msg = document.createElement('div');
@@ -611,12 +783,74 @@
                 }
 
                 streamContent.removeAttribute('id');
+                if (currentMode === 'chat') showChatNudge();
             } catch (err) {
                 streamContent.textContent = 'Error: ' + err.message;
             } finally {
                 sendButton.disabled = false;
                 userInput.focus();
             }
+        }
+
+        function openContactModal() {
+            document.getElementById('contactModalOverlay').classList.add('open');
+            setTimeout(() => document.getElementById('contactName').focus(), 100);
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModalOverlay').classList.remove('open');
+            document.getElementById('contactFormView').style.display = '';
+            document.getElementById('contactSuccessView').style.display = 'none';
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactName').classList.remove('error');
+            document.getElementById('contactEmail').classList.remove('error');
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = false;
+            btn.textContent = 'Send Details';
+        }
+
+        async function submitContact() {
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const phone = document.getElementById('contactPhone').value.trim();
+
+            document.getElementById('contactName').classList.toggle('error', !name);
+            document.getElementById('contactEmail').classList.toggle('error', !email);
+            if (!name || !email) return;
+
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                await fetch(CONTACT_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone })
+                });
+                document.getElementById('contactSuccessMsg').textContent = `Thanks ${name}! I'll be in touch soon.`;
+                document.getElementById('contactFormView').style.display = 'none';
+                document.getElementById('contactSuccessView').style.display = 'block';
+                setTimeout(closeContactModal, 2500);
+            } catch (err) {
+                btn.disabled = false;
+                btn.textContent = 'Send Details';
+            }
+        }
+
+        function showChatNudge() {
+            if (contactNudgeShown) return;
+            contactNudgeShown = true;
+            const nudge = document.createElement('div');
+            nudge.className = 'chat-nudge';
+            nudge.innerHTML = `
+                <p>Interested in connecting with Deepak?</p>
+                <button class="chat-nudge-btn" onclick="openContactModal()">Leave your details →</button>
+            `;
+            chatContainer.appendChild(nudge);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     </script>
 </body>
