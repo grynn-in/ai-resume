@@ -133,28 +133,29 @@ app.post('/api/fit', async (req, res) => {
 
         const fitSystemPrompt = `You are an expert recruiter analyzing job fit. You have a candidate's resume and a job description.
 
-TASK: Analyze the job description against the candidate's resume and categorize fit into 3 buckets with IMPORTANCE INDICATORS:
+TASK: Analyze the job description against the candidate's resume and categorize fit with IMPORTANCE INDICATORS.
 
-1. **Perfect Fit** - Skills/experience that match EXACTLY (candidate has done this before)
-2. **Good Fit** - Related skills/transferable experience (candidate can do this with minimal ramp-up)
-3. **Average Fit** - Adjacent/learnable skills (candidate would need training but has foundation)
+CATEGORIES:
+1. **Direct Match** - Candidate has done this before (exact or near-exact experience)
+2. **Transferable** - Related experience that covers this with minimal ramp-up
+3. **Gaps / To Develop** - Genuinely missing; candidate would need training (only include real gaps)
 
-FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
+FORMAT YOUR RESPONSE EXACTLY LIKE THIS (omit any section that has no items):
 
-## Perfect Fit ✅
+## Direct Match ✅
 - 🔴 **[CRITICAL]** [Requirement] - [Specific match with years/numbers from resume]
 - 🟡 **[IMPORTANT]** [Requirement] - [Specific match with years/numbers from resume]
 - 🟢 **[NICE-TO-HAVE]** [Requirement] - [Specific match with years/numbers from resume]
 
-## Good Fit 💚
+## Transferable 💚
 - 🔴 **[CRITICAL]** [Requirement] - [Transferable experience explanation]
 - 🟡 **[IMPORTANT]** [Requirement] - [Transferable experience explanation]
 - 🟢 **[NICE-TO-HAVE]** [Requirement] - [Transferable experience explanation]
 
-## Average Fit ⚠️
-- 🔴 **[CRITICAL]** [Requirement] - [Gap explanation and learning path]
-- 🟡 **[IMPORTANT]** [Requirement] - [Gap explanation and learning path]
-- 🟢 **[NICE-TO-HAVE]** [Requirement] - [Gap explanation and learning path]
+## Gaps / To Develop ⚠️
+- 🔴 **[CRITICAL]** [Requirement] - [Honest gap explanation]
+- 🟡 **[IMPORTANT]** [Requirement] - [Honest gap explanation]
+- 🟢 **[NICE-TO-HAVE]** [Requirement] - [Honest gap explanation]
 
 ## Overall Assessment
 [2-3 sentences: Overall fit level (Strong/Moderate/Weak), key strengths, main gaps]
@@ -165,6 +166,7 @@ IMPORTANCE LEVELS:
 - 🟢 **NICE-TO-HAVE** = Bonus/supplementary skill
 
 RULES:
+- Only put something in "Gaps / To Develop" if it is a genuine gap — do NOT invent gaps to fill the section
 - Infer importance from job description context (required vs preferred, emphasis, frequency mentioned)
 - Be honest and specific
 - Cite actual numbers from resume (years, dollar amounts, team sizes)

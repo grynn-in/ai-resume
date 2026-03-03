@@ -10,7 +10,7 @@
     "internationalExperience": "Worked in US (6 yrs), Switzerland (12 yrs), India (4 yrs)",
     "currentStatus": "D365 Finance Consultant at Avanade/Accenture for Rolex and Bucherer (3 years). Deeply tech savvy with service and consultation running in my blood."
   },
-  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with ERPNext. Master storyteller who bridges technology and business. International experience across 3 continents.",
+  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Designed global controlling frameworks and KPI reporting for C-level and senior management. Strong PowerPoint storyteller — translates complex data into executive narratives for Board, Regional GM, and C-level audiences. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with open-source ERP. International experience across 3 continents.",
   "aiContextInstructions": {
     "note": "When answering questions, intelligently emphasize relevant experience based on the topic",
     "financeQuestions": "Focus on: 10 years finance experience, FP&A, SG&A/Supply Chain controlling, USD 200M CAPEX projects, P2P/O2C processes, M&A, financial modeling, procurement finance, cash and savings programs, business partnering at Unilever/Ecolab",
@@ -146,7 +146,9 @@
           "achievements": [
             "Drive the SG&A annual budgeting process",
             "Own monthly forecast, actuals and reconciliations",
+            "Designed and standardized global SG&A controlling framework and KPI reporting used by Regional GM and Market Leaders",
             "Set up reporting by cost center for local, regional and global cost centers",
+            "Delivered executive PowerPoint decks for monthly performance reviews with Regional GM and Market Leaders",
             "Manage stakeholders via contingencies and R&O (Risks & Opportunities)",
             "Set up monthly performance reviews cycles (Regional GM with Market Leaders)",
             "Headcount forecast and reconciliation with employees and garden leavers",
@@ -467,6 +469,7 @@
     },
     "soft": [
       "Storytelling with Data",
+      "Executive PowerPoint Presentations (C-level, Board, Senior Management)",
       "Bridge Builder (Technical-to-Business)",
       "Cross-functional Communication",
       "Training & Education (80% of current work)",

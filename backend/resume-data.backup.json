@@ -1,7 +1,7 @@
 {
   "personalInfo": {
-    "name": "Professional Consultant",
-    "title": "D365 Finance Consultant | Financial Controller | Digital Transformation Leader",
+    "name": "Deepak Pai",
+    "title": "MBA, St. Gallen | D365 Finance Consultant | Financial Controller | Digital Transformation Leader",
     "phone": "[available on request]",
     "location": "Zurich, Switzerland",
     "linkedinPlaceholder": "Update with your LinkedIn",
@@ -10,9 +10,7 @@
     "internationalExperience": "Worked in US (6 yrs), Switzerland (12 yrs), India (4 yrs)",
     "currentStatus": "D365 Finance Consultant at Avanade/Accenture for Rolex and Bucherer (3 years). Deeply tech savvy with service and consultation running in my blood."
   },
-
-  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with ERPNext. Master storyteller who bridges technology and business. International experience across 3 continents.",
-
+  "executiveSummary": "Electronics Engineer with MBA from St. Gallen. Rare combination: 10 years in IT/BI building data warehouses and internet applications + 10 years in Finance & Controlling across all P&L lines ($250M+). Led strategic CAPEX decisions (US $200M). Experienced in Purchase to Pay (P2P) and Order to Cash (O2C) processes + ERP implementation. Supply Chain Controller, SG&A Controller, and M&A experience at Unilever and Ecolab. Designed global controlling frameworks and KPI reporting for C-level and senior management. Strong PowerPoint storyteller — translates complex data into executive narratives for Board, Regional GM, and C-level audiences. Implemented Spend BI tool at Unilever resulting in total transparency of savings & cash. Founded startup to digitize SME supply chains with open-source ERP. International experience across 3 continents.",
   "aiContextInstructions": {
     "note": "When answering questions, intelligently emphasize relevant experience based on the topic",
     "financeQuestions": "Focus on: 10 years finance experience, FP&A, SG&A/Supply Chain controlling, USD 200M CAPEX projects, P2P/O2C processes, M&A, financial modeling, procurement finance, cash and savings programs, business partnering at Unilever/Ecolab",
@@ -24,7 +22,6 @@
     "architectureQuestions": "Focus on: Passion for architecture (would have studied it if knew about it), watches every Grand Designs episode, excited by real estate digitization, electronics engineering background",
     "d365Questions": "Focus on: ERP implementation experience (ERPNext and others), P2P/O2C/S2C process expertise, finance modules deep knowledge, worked with Ariba, multi-site implementations, change management, requirements analysis, solution architecture, bridge between technical and business, finance background makes me understand ERP from user perspective"
   },
-
   "experience": [
     {
       "company": "Accenture / Avanade",
@@ -35,16 +32,24 @@
       "duration": "3 years",
       "description": "D365 Finance consultant for leading luxury brands Rolex and Bucherer",
       "achievements": [
-        "Finance consultant for D365 implementation at Rolex and Bucherer (leading MS clients)",
-        "Implementation of Accounts Payable using D365 at Bucherer/ROLEX",
-        "Built deep and trustful relationship with key users over 3 years",
-        "Strong relationship with global process lead for finance",
-        "Deeply tech savvy with focus on cloud technology",
-        "Service and consultation expertise applied to luxury retail finance",
+        "Responsible for finance modules and 3rd party integration for D365 implementation at Bucherer AG (subsidiary of Rolex, leading global retailer for Swiss watches and jewelry)",
+        "Specific focus towards AUTOMATION including: treasury digitalization, audit-proof document storage (DMS), automated credit card reconciliation and accounting, expense management, vendor payment (3-way match via OCR/AI)",
+        "Fully implemented using AGILE/SCRUM with 3-week sprints for Minimum Viable Product (MVP)",
+        "Built deep and trustful relationship with key users and global process lead for finance over 3 years",
+        "Deeply tech savvy - love cloud technology, service and consultation running in my blood",
+        "Luxury retail finance expertise - understand high-value inventory, multi-currency, global operations",
         "Bridge between technical D365 capabilities and finance business requirements",
-        "Lead consultant role on major finance transformation project"
+        "Accenture/Avanade context: Part of Fortune Global 500 company ($61.6B revenue in 2022), Irish-American professional services specializing in IT services and consulting"
       ],
-      "skillsUsed": ["D365 Finance & Operations", "Accounts Payable", "Finance Consulting", "Cloud Technology", "Luxury Retail", "Stakeholder Management", "Finance Transformation"]
+      "skillsUsed": [
+        "D365 Finance & Operations",
+        "Accounts Payable",
+        "Finance Consulting",
+        "Cloud Technology",
+        "Luxury Retail",
+        "Stakeholder Management",
+        "Finance Transformation"
+      ]
     },
     {
       "company": "ERP Related Startup",
@@ -55,35 +60,26 @@
       "duration": "2 years 9 months",
       "description": "Founded bootstrapped startup focused on helping companies digitize their supply chains with reliable, straightforward technology",
       "achievements": [
-        "Mission: Help companies digitize supply chains with straightforward, reliable ERP technology",
-        "Helped multiple SMEs (KMU) digitize their supply chains through ERP implementation",
-        "Specialized in ERPNext - open-source ERP solution for cost-effective digital transformation",
-        "Successfully implemented ERPNext for many companies, focusing on procurement and supply chain modules",
+        "Solution architect for Swiss QR code Invoicing - critical for Swiss compliance",
+        "European government e-invoicing EN16931 compliance",
+        "ISO 20022 bank format (CAMT53) for treasury - fully based on Free and Open Source Software (FOSS) model",
+        "Promoted FOSS ERP system for small and medium businesses (SMEs) across Europe",
+        "Administrator of online and telegram discussion groups for FOSS ERP community (GitHub URL available upon request)",
+        "Built technical solutions: ERPNext customizations, integrations, localizations",
         "80% education-based approach: matching requirements with features, training users, teaching tips and tricks",
-        "Consultative selling: explaining FOSS benefits, building trust, ensuring customer success",
-        "Developed expertise in change management and user adoption for digital transformation",
+        "Mission: Democratize enterprise-grade technology for SMEs using FOSS",
         "Startup impacted by COVID-19 - 'If life gives you lemons, make lemonade' - emerged wiser and more experienced"
       ],
-      "skillsUsed": ["ERP Implementation", "ERPNext", "FOSS Evangelism", "Change Management", "P2P Processes", "Supply Chain", "Customer Success", "Entrepreneurship"]
-    },
-    {
-      "company": "Current Activities",
-      "position": "Independent Consultant & Business Owner",
-      "location": "Zurich, Switzerland",
-      "startDate": "2020",
-      "endDate": "Present",
-      "description": "Runs 2 companies and 1 website while exploring corporate opportunities",
-      "achievements": [
-        "Run 2 companies and 1 website - full operational and financial responsibility",
-        "Challenge: Hard to keep track of digital assets (photos, images, artwork, attribution) across businesses - understand DAM pain point firsthand",
-        "Continue helping SMEs implement ERP solutions and educate about FOSS",
-        "Maintained client relationships from startup, ongoing ERP implementation support",
-        "Primary focus on FOSS education: explaining what FOSS is, its benefits, and practical implementation",
-        "Continuous learning approach: teaching users tips and tricks that make their work easier",
-        "Bridge technical implementation with business value through effective storytelling",
-        "Back in job market after COVID - not defeated, just wiser"
-      ],
-      "skillsUsed": ["Entrepreneurship", "ERP Consulting", "FOSS", "Digital Asset Management", "Multi-company Management"]
+      "skillsUsed": [
+        "ERP Implementation",
+        "ERPNext",
+        "FOSS Evangelism",
+        "Change Management",
+        "P2P Processes",
+        "Supply Chain",
+        "Customer Success",
+        "Entrepreneurship"
+      ]
     },
     {
       "company": "Ecolab",
@@ -92,38 +88,57 @@
       "startDate": "January 2014",
       "endDate": "March 2019",
       "duration": "5 years 3 months",
-      "description": "Supply Chain Controller with focus on Food & Beverages, Institutional, and strategic Projects",
+      "description": "American global provider of Water, Hygiene and Energy technologies to food, energy, healthcare, industrial and hospitality markets. Revenue $14B, ~50k employees. Three distinct roles showing career progression.",
       "roles": [
         {
-          "title": "Controller Strategic Projects",
+          "title": "Head Controller for Strategic Projects",
           "period": "04/2017 - 03/2019",
           "achievements": [
             "Setup business case for $200M investment proposal for 'Supply Chain Network Optimization'",
-            "Input & validation of savings on procurement, insourcing, interfacility freight, elimination of fixed costs",
-            "Drive Monte-Carlo simulations to validate output with non-correlated outcomes to judge soundness of project",
-            "Demonstrate likely outcome ranges with probability distributions (90% likelihood scenarios)",
+            "Input, Analysis and Validation of savings on procurement, insourcing, interfacility freight, variable + fixed cost ratios",
+            "Solid budget, cost control and analysis (actual vs. plan, forecast)",
+            "Solid assumptions with FX for current and restatement for next year",
+            "Coordination of inputs from all key stakeholders (CPO, CSCO, and Logistics Lead)",
+            "Financial modeling with Monte-Carlo simulations to validate the savings: judge soundness, demonstrate likely outcome ranges with probability, probability distribution (90% likelihood of spending x CAPEX, generate y savings)",
             "Supply Chain Lead for due diligence of M&A (RP Adam, publicly announced)",
-            "Financial modeling for make or buy decisions",
             "Decision support for strategic CAPEX (US $200M) and annual CAPEX (~$30M)",
-            "M&A Negotiation Leverage (2018): Collaborated with corporate business development to identify key conditions set by target firm and provided dollar impacts to discount purchase price, helping seller relax conditions/terms for Ecolab"
+            "Make or Buy decision making expertise"
           ],
-          "skillsUsed": ["Strategic Finance", "Financial Modeling", "M&A", "Supply Chain Finance", "Monte Carlo Simulation", "Business Case Development", "CAPEX Management"]
+          "skillsUsed": [
+            "Strategic Finance",
+            "Financial Modeling",
+            "M&A",
+            "Supply Chain Finance",
+            "Monte Carlo Simulation",
+            "Business Case Development",
+            "CAPEX Management"
+          ]
         },
         {
-          "title": "Supply Chain Controller",
+          "title": "Head, Finance Controlling for Supply Chain (Division: Institution, FRS)",
           "period": "05/2015 - 03/2017",
+          "scope": "USD $250M+ of COGS, 3 Manufacturing sites, 180k tons of chemicals per year",
           "achievements": [
             "Leading the annual budget reviews for standard cost of goods and variances for 3 divisional P&Ls",
-            "Plan & forecast divisional capex and savings projects",
+            "Annual Plan & Monthly forecast divisional supply chain results (after consolidation)",
             "Finance Head for 3 plants (Annual 160k Tons, 25% of European supply)",
+            "Mix / FX analysis and impact on forecast vs. actuals",
             "Drive annual plan and monthly forecast with the help of 3 plant controllers",
             "Drive high degree of forecast accuracy and managing 'noise' by using risks and opportunities",
-            "Developed 'Target Costing Tool' (2016) for Marketing, R&D and Supply Chain to collaborate and innovate new products with target cost & profitability - took guesswork out of R&D/Marketing using network costs",
-            "Established FP&A for Supply Chain (2015-2016): Drove high accuracy and predictability using fundamental (bottoms up) and technical analysis (trend, reconciliation) to win support of divisional partners",
-            "Focus on projects to improve gross margin: target costing, insourcing, production localizing",
-            "Procurement and supply chain runs in my blood - this role proved it"
+            "Developed 'Target Costing Tool' for Marketing, R&D and Supply Chain to collaborate and innovate new products with target cost & profitability",
+            "Established FP&A for Supply Chain: Drove high accuracy using fundamental (bottoms up) and technical analysis",
+            "Focus on projects to improve gross margin: target costing, insourcing, production localizing"
           ],
-          "skillsUsed": ["Supply Chain Finance", "FP&A", "Plant Finance", "Cost Accounting", "Forecasting", "Target Costing", "Gross Margin Optimization", "Multi-site Management"]
+          "skillsUsed": [
+            "Supply Chain Finance",
+            "FP&A",
+            "Plant Finance",
+            "Cost Accounting",
+            "Forecasting",
+            "Target Costing",
+            "Gross Margin Optimization",
+            "Multi-site Management"
+          ]
         },
         {
           "title": "SG&A Controller",
@@ -131,13 +146,22 @@
           "achievements": [
             "Drive the SG&A annual budgeting process",
             "Own monthly forecast, actuals and reconciliations",
+            "Designed and standardized global SG&A controlling framework and KPI reporting used by Regional GM and Market Leaders",
             "Set up reporting by cost center for local, regional and global cost centers",
+            "Delivered executive PowerPoint decks for monthly performance reviews with Regional GM and Market Leaders",
             "Manage stakeholders via contingencies and R&O (Risks & Opportunities)",
             "Set up monthly performance reviews cycles (Regional GM with Market Leaders)",
             "Headcount forecast and reconciliation with employees and garden leavers",
             "Promoted to Supply Chain Controller based on strong performance"
           ],
-          "skillsUsed": ["SG&A Controlling", "Budgeting", "Forecasting", "Cost Center Management", "Stakeholder Management", "Headcount Planning"]
+          "skillsUsed": [
+            "SG&A Controlling",
+            "Budgeting",
+            "Forecasting",
+            "Cost Center Management",
+            "Stakeholder Management",
+            "Headcount Planning"
+          ]
         }
       ],
       "overallImpact": "3 different controller roles in 5 years. Accelerated promotion. High potential. Led $200M strategic decisions. Controlled 250M+ P&L. M&A experience. Supply chain finance expert."
@@ -173,7 +197,21 @@
         "Educated procurement, supply chain, and sales teams about financial insights",
         "Mastered art of storytelling with data - making complex information accessible"
       ],
-      "skillsUsed": ["Procurement Finance", "Indirect Procurement", "P2P Processes", "O2C Processes", "Working Capital", "BI Implementation", "Data Warehousing", "Change Management", "Spend Analytics", "FX Risk Management", "Supplier Management", "Business Partnering", "Audit"]
+      "skillsUsed": [
+        "Procurement Finance",
+        "Indirect Procurement",
+        "P2P Processes",
+        "O2C Processes",
+        "Working Capital",
+        "BI Implementation",
+        "Data Warehousing",
+        "Change Management",
+        "Spend Analytics",
+        "FX Risk Management",
+        "Supplier Management",
+        "Business Partnering",
+        "Audit"
+      ]
     },
     {
       "company": "Bank of America (and various technical roles)",
@@ -190,7 +228,13 @@
         "Managed offshoring transition project",
         "Bridge between US headquarters and India operations"
       ],
-      "skillsUsed": ["Offshoring", "Contract Management", "Business Partnership", "Financial Management", "Cross-border Operations"]
+      "skillsUsed": [
+        "Offshoring",
+        "Contract Management",
+        "Business Partnership",
+        "Financial Management",
+        "Cross-border Operations"
+      ]
     },
     {
       "company": "Adaequare Info",
@@ -207,7 +251,14 @@
         "Led team of data engineers",
         "Designed and implemented data integration solutions"
       ],
-      "skillsUsed": ["BI Project Management", "ETL", "Data Integration", "Team Leadership", "Data Quality", "Sports Analytics"]
+      "skillsUsed": [
+        "BI Project Management",
+        "ETL",
+        "Data Integration",
+        "Team Leadership",
+        "Data Quality",
+        "Sports Analytics"
+      ]
     },
     {
       "company": "Separation Technologies (Part of Titan Cement)",
@@ -224,7 +275,14 @@
         "First division to implement VoIP for Titan America (2003) across STI 8 sites - cost savings innovation",
         "Multi-site, international project delivery"
       ],
-      "skillsUsed": ["Program Management", "IT/BI System Design", "Multi-site Implementation", "VoIP", "Cost Optimization", "Industrial Systems"]
+      "skillsUsed": [
+        "Program Management",
+        "IT/BI System Design",
+        "Multi-site Implementation",
+        "VoIP",
+        "Cost Optimization",
+        "Industrial Systems"
+      ]
     },
     {
       "company": "Internet Technologies Group",
@@ -240,7 +298,14 @@
         "Led technical team through migration",
         "Developed complex pump configurator for Pump Tech company in Boston (2000) - UX help for customers"
       ],
-      "skillsUsed": ["E-commerce", "ASP", "Microsoft Technologies", "Platform Migration", "Team Leadership", "UX Design"]
+      "skillsUsed": [
+        "E-commerce",
+        "ASP",
+        "Microsoft Technologies",
+        "Platform Migration",
+        "Team Leadership",
+        "UX Design"
+      ]
     },
     {
       "company": "Microland Pvt. Ltd",
@@ -257,10 +322,16 @@
         "Worked with cutting-edge technology (SDL) from Amazon",
         "Dot-com era internet application development"
       ],
-      "skillsUsed": ["Web Crawling", "SDL", "Job Board Aggregation", "Internet Applications", "Data Syndication", "Software Engineering"]
+      "skillsUsed": [
+        "Web Crawling",
+        "SDL",
+        "Job Board Aggregation",
+        "Internet Applications",
+        "Data Syndication",
+        "Software Engineering"
+      ]
     }
   ],
-
   "education": [
     {
       "institution": "Udacity",
@@ -297,7 +368,6 @@
       "notes": "Engineering foundation. If I knew what architecture discipline was, I would have chosen it - but I chose what was available (Electronics Engineering). Sparked lifelong interest in how things work."
     }
   ],
-
   "skills": {
     "finance": {
       "core": [
@@ -399,6 +469,7 @@
     },
     "soft": [
       "Storytelling with Data",
+      "Executive PowerPoint Presentations (C-level, Board, Senior Management)",
       "Bridge Builder (Technical-to-Business)",
       "Cross-functional Communication",
       "Training & Education (80% of current work)",
@@ -408,7 +479,6 @@
       "Resilience ('Lemonade from lemons')"
     ]
   },
-
   "certifications": [
     {
       "name": "IPMA Level C - Certified Project Manager",
@@ -429,7 +499,6 @@
       "description": "Executive education on digital transformation strategies."
     }
   ],
-
   "trainings": [
     {
       "name": "Google Cloud Platform Fundamentals",
@@ -458,7 +527,6 @@
       "provider": "Bank of America, India"
     }
   ],
-
   "languages": [
     {
       "language": "English",
@@ -471,7 +539,6 @@
       "notes": "Actively studying to improve German language skills for Swiss market"
     }
   ],
-
   "majorAchievements": {
     "finance": [
       {
@@ -543,7 +610,6 @@
       }
     ]
   },
-
   "projects": [
     {
       "name": "Supply Chain Network Optimization",
@@ -551,7 +617,11 @@
       "duration": "2017-2019",
       "role": "Controller Strategic Projects",
       "description": "Setup business case for massive supply chain optimization project",
-      "technologies": ["Financial Modeling", "Monte Carlo Simulation", "Supply Chain Analysis"],
+      "technologies": [
+        "Financial Modeling",
+        "Monte Carlo Simulation",
+        "Supply Chain Analysis"
+      ],
       "highlights": [
         "Input & validation of savings on procurement, insourcing, interfacility freight, fixed cost elimination",
         "Monte-Carlo simulations to validate outcomes",
@@ -565,7 +635,12 @@
       "duration": "2011-2013",
       "role": "Leader for Indirect Procurement spend analytics",
       "description": "Led implementation of Business Intelligence tool for Unilever procurement",
-      "technologies": ["BI", "Data Warehousing", "Spend Analytics", "ETL"],
+      "technologies": [
+        "BI",
+        "Data Warehousing",
+        "Spend Analytics",
+        "ETL"
+      ],
       "highlights": [
         "Covered 6M invoices paid globally",
         "Item-level granularity of purchasing",
@@ -580,7 +655,13 @@
       "duration": "2018-Present",
       "role": "Founder / Consultant",
       "description": "Multiple successful ERP implementations for small and medium enterprises in Switzerland",
-      "technologies": ["ERPNext", "FOSS ERP", "SQL", "Data Migration", "Process Optimization"],
+      "technologies": [
+        "ERPNext",
+        "FOSS ERP",
+        "SQL",
+        "Data Migration",
+        "Process Optimization"
+      ],
       "highlights": [
         "Focus on open-source ERP solutions that reduce licensing costs",
         "Education-first approach ensuring user adoption and success",
@@ -595,7 +676,11 @@
       "duration": "2006-2008",
       "role": "BI Project Manager",
       "description": "Built ETL scheme for United States Tennis Association ranking system",
-      "technologies": ["ETL", "Data Integration", "Data Quality"],
+      "technologies": [
+        "ETL",
+        "Data Integration",
+        "Data Quality"
+      ],
       "highlights": [
         "Consolidated 2000 affiliates into one system",
         "Solved complex duplicate record challenges",
@@ -608,7 +693,12 @@
       "duration": "2002-2005",
       "role": "Program Manager",
       "description": "Design & build entire IT/BI system for Separation Technologies",
-      "technologies": ["IT Infrastructure", "BI", "VoIP", "Multi-site Systems"],
+      "technologies": [
+        "IT Infrastructure",
+        "BI",
+        "VoIP",
+        "Multi-site Systems"
+      ],
       "highlights": [
         "Multi-state and international deployment (MA, PA, MD, FL, MS, Canada, UK)",
         "Industrial systems for coal-fired power plants",
@@ -617,7 +707,6 @@
       ]
     }
   ],
-
   "d365SolutionArchitect": {
     "note": "Microsoft Dynamics 365 Consultant / Solution Architect persona",
     "pitch": "Perfect fit for D365: Deep ERP implementation experience (ERPNext, Ariba), 10 years finance understanding ERP from user perspective (P2P, O2C, S2C, R2R, finance modules), 10 years IT building systems. I bridge business requirements and technical implementation. Led multi-site ERP projects. Change management expert. Understand finance, supply chain, and procurement modules intimately because I've USED them as a controller.",
@@ -647,7 +736,6 @@
     },
     "implementationApproach": "I don't just implement D365 - I ensure business value. Start with business process understanding (not jumping to config). Map current state, identify pain points, design future state. Heavy emphasis on change management and training (my 80% education approach). Measure success by user adoption and business outcomes, not just go-live."
   },
-
   "interests": [
     "Architecture (watches every episode of Grand Designs - if I knew about architecture discipline, would have chosen it as profession)",
     "Free and Open Source Software (FOSS) evangelism",
@@ -660,25 +748,16 @@
     "Food (foodie - fascinated by how Givaudan figures out taste and smell)",
     "Real Estate Digitization"
   ],
-
   "personalityAndValues": {
     "coreStrength": "I bridge worlds. Technology and business. Engineering and finance. Strategy and implementation. Data and decisions. Technical and non-technical. This is my superpower.",
-
     "educatorAtHeart": "80% of my work is teaching: explaining FOSS benefits, training users, helping them discover tips and tricks. Finance taught me storytelling with numbers. I empower through knowledge, not create dependency.",
-
     "procurementPassion": "Procurement and supply chain runs in my blood. I've been the finance partner (driving cash and savings), the consultant (implementing systems), and the founder (building solutions). I understand it from every angle.",
-
     "customerSuccess": "Love seeing customers succeed. Technology products excite me. I don't just promise - I deliver the message of value with purpose and integrity. Get my hands dirty helping customers adapt technology to fit their needs.",
-
     "continuousLearner": "Believe in continually updating myself. MBA while working. Predictive Data Science in 2019. Learning German for Swiss market. With experience comes benefit of having made mistakes - always learning.",
-
     "resilience": "'If life gives you lemons, make lemonade' - my mentor's wisdom. COVID crashed my bootstrapped startup dream. Not defeated, just a bit wiser. Back in job market ready to contribute.",
-
     "foss": "FOSS evangelist. Believe small businesses deserve enterprise-grade technology without vendor lock-in. Democratize technology access. Open source is about freedom and empowerment.",
-
     "uniqueCombination": "Most consultants come from either business OR technology. I come from both. 10 years learning to speak 'business' in finance roles, then 10 years learning to speak 'technology' in IT. Now I translate between the two. Add in IPMA Level C project management and passion for education, and you have someone who can not only implement solutions but ensure they're understood, adopted, and successful."
   },
-
   "companySpecificContext": {
     "archilogic": {
       "interest": "Digitization of real estate is like digitizing the brain of an architect. Beautiful, complex, and sometimes surprising. Archilogic is onto something very special.",
@@ -706,7 +785,6 @@
       "excitement": "There are two things that excite me. One is technology and the other is finance. I happen to be a combination of both because of my prior experience in IT and Finance."
     }
   },
-
   "careerProgression": {
     "trajectory": "Accelerated promotions at every company - considered high potential talent throughout career",
     "promotions": [
@@ -715,16 +793,42 @@
       "Consistent pattern of increasing responsibilities"
     ],
     "leadership": "Led multidisciplinary and multicultural teams throughout career",
-    "geography": "International career: India (4 yrs) → US (6 yrs) → Switzerland (10 yrs)"
+    "geography": "International career: India (4 yrs) \u2192 US (6 yrs) \u2192 Switzerland (10 yrs)"
   },
-
   "additionalInfo": {
     "whyDeserveExtraPoints": "I think I deserve those extra points. For putting in 10 years into a great finance career (Unilever and Ecolab) and then another 10 years in Software development (everything from internet applications to data warehouses). And could I have extra points for knowing SQL/KNIME/Alteryx, including regression and machine learning? And some extra credits for IPMA (Swiss) Level C project management certificate.",
-
     "currentSituation": "As my mentor puts it, if life gives you lemon, one makes lemonade out of it. And thanks to COVID, which crashed my dream of building a bootstrapped startup in procurement and supply chain, now I am back in the job market :-) Not defeated, just a bit wiser. Therefore I am looking to switch gears for the moment.",
-
     "valueProposition": "With experience comes the benefit of having made the mistakes. Here is a chance for companies to take the chance to get something out of my experience?",
-
     "availability": "Would be great to have a quick discussion — please reach out via LinkedIn."
+  },
+  "personalLife": {
+    "family": "Father of 2 daughters",
+    "musicPassion": "Learning to play electric guitar. Help my 2 daughters with their piano lessons. Music is important family time.",
+    "motorcyclePassion": "When weather is good, like to take motorcycle for short ride for couple of hours. Clears the mind.",
+    "workLifeBalance": "Balance demanding technical consulting work with family music time and outdoor motorcycle adventures",
+    "hobbies": [
+      "Electric guitar (learning)",
+      "Piano with daughters",
+      "Motorcycling",
+      "Cloud technology exploration"
+    ]
+  },
+  "cloudTechPassion": {
+    "passion": "Deeply tech savvy person and love cloud technology",
+    "mindset": "Service and consultation running in my blood",
+    "currentFocus": "D365 cloud platform, Azure, automation, AI/ML in finance (OCR for 3-way match)",
+    "philosophy": "Technology should serve people, not complicate their lives. That's why I focus on practical automation that actually helps users."
+  },
+  "whyFinanceController": {
+    "referredBy": "Recommended to apply by dear friend Aleksandra Hristova (CSAM for 3 years)",
+    "deeplyHonored": "Would be deeply honored if you would like to consider my application",
+    "qualifications": [
+      "Worked as finance controller in FP&A",
+      "Worked as Supply Chain Controller",
+      "Worked as Project Controller",
+      "Good at technical and fundamental analysis with or without good data (using estimation, assumptions, scenarios)",
+      "Can work with incomplete data - make smart assumptions and scenario planning"
+    ],
+    "readiness": "Look forward to a conversation with you"
   }
 }
