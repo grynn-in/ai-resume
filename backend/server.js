@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import nodemailer from 'nodemailer';
+import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import Anthropic from '@anthropic-ai/sdk';
@@ -67,6 +68,7 @@ CRITICAL RULES:
 - Focus on KEY highlights only - be selective
 - If asked about something not in data, naturally say you don't have that experience
 - NEVER mention ERPNext by name (use "open-source ERP" instead)
+- If asked for contact details (phone, email, how to reach out, etc.): say the details are available on request and direct them to click the "Get in touch" or "Let's Connect" button on this page to leave their details
 
 RESUME DATA:
 ${JSON.stringify(resumeInfo, null, 2)}
@@ -231,8 +233,32 @@ app.post('/api/contact', async (req, res) => {
     writeFileSync(logPath, JSON.stringify(contacts, null, 2));
     console.log(`📬 New contact: ${name} <${email}>`);
 
-    // Send email notification if configured
-    if (process.env.GMAIL_USER && process.env.GMAIL_PASS && process.env.NOTIFY_EMAIL) {
+    // Send email notification — SES preferred, Gmail fallback
+    const subject = `CV Lead: ${name}`;
+    const body = `New lead from your CV:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'not provided'}\n\nTime: ${entry.timestamp}`;
+
+    if (process.env.ACCESS_KEY_ID && process.env.SECRET_ACCESS_KEY && process.env.SES_FROM_EMAIL && process.env.NOTIFY_EMAIL) {
+        try {
+            const ses = new SESClient({
+                region: process.env.REGION || 'us-east-1',
+                credentials: {
+                    accessKeyId: process.env.ACCESS_KEY_ID,
+                    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+                },
+            });
+            await ses.send(new SendEmailCommand({
+                Source: process.env.SES_FROM_EMAIL,
+                Destination: { ToAddresses: [process.env.NOTIFY_EMAIL] },
+                Message: {
+                    Subject: { Data: subject },
+                    Body: { Text: { Data: body } },
+                },
+            }));
+            console.log(`📧 SES notification sent for ${name}`);
+        } catch (emailErr) {
+            console.error('SES notification failed:', emailErr.message);
+        }
+    } else if (process.env.GMAIL_USER && process.env.GMAIL_PASS && process.env.NOTIFY_EMAIL) {
         try {
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -241,12 +267,12 @@ app.post('/api/contact', async (req, res) => {
             await transporter.sendMail({
                 from: process.env.GMAIL_USER,
                 to: process.env.NOTIFY_EMAIL,
-                subject: `CV Lead: ${name}`,
-                text: `New lead from your CV:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'not provided'}\n\nTime: ${entry.timestamp}`,
+                subject,
+                text: body,
             });
-            console.log(`📧 Email notification sent for ${name}`);
+            console.log(`📧 Gmail notification sent for ${name}`);
         } catch (emailErr) {
-            console.error('Email notification failed:', emailErr.message);
+            console.error('Gmail notification failed:', emailErr.message);
         }
     }
 
