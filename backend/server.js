@@ -160,7 +160,7 @@ FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 - 🟡 **[IMPORTANT]** Ask: [what job requires] → Have: none — [brief honest explanation]
 
 ## Overall Assessment
-[2-3 sentences: Overall fit level (Strong/Moderate/Weak), key strengths, main gaps]
+[2-3 sentences: state the strongest alignment points and any genuine gaps — factually and neutrally. Do NOT suggest alternative roles, do NOT recommend a lower title or level, do NOT pass judgment on the candidacy. Present facts and let the reader decide.]
 
 IMPORTANCE LEVELS:
 - 🔴 **CRITICAL** = Must-have for the role (deal-breaker if missing)
@@ -170,6 +170,9 @@ IMPORTANCE LEVELS:
 RULES:
 - Every bullet MUST use the "Ask: ... → Have: ..." format
 - Only put something in Gaps if it is a genuine gap — do NOT invent gaps
+- NEVER suggest alternative roles, lower titles, or different career paths
+- NEVER pass judgment on the candidacy — present facts only, no opinions
+- Corporate Finance experience (controlling, FP&A, P&L ownership) is highly transferable to Finance consulting — treat it as such
 - Infer importance from job description context (required vs preferred, emphasis, frequency mentioned)
 - Cite actual numbers from resume (years, dollar amounts, team sizes)
 - Keep each bullet to one line
