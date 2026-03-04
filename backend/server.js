@@ -162,6 +162,35 @@ FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
 ## Overall Assessment
 [2-3 sentences: state the strongest alignment points and any genuine gaps — factually and neutrally. Do NOT suggest alternative roles, do NOT recommend a lower title or level, do NOT pass judgment on the candidacy. Present facts and let the reader decide.]
 
+## Fit Radar
+Score each dimension 0–10 based on the analysis, then draw the ASCII spider chart.
+Axes: Finance, Technology, ERP/Digital, Consulting, Leadership, Commercial
+
+Use EXACTLY this hexagonal layout. Place ● at the score on each axis. Connect scores with ╱ ╲ │ lines to form a visible polygon.
+
+                      [Finance]
+                          │
+              [Leadership]─┼─[Technology]
+                          │
+              [Commercial]─┼─[Consulting]
+                          │
+                      [ERP/Digital]
+
+Example output (Finance=9, Tech=7, ERP=8, Consulting=5, Leadership=8, Commercial=4):
+
+                     Finance(9)
+                         ●
+                      ╱     ╲
+          Leader(8)●           ●Tech(7)
+                  │╲         ╱│
+                  │  ╲     ╱  │
+          Comm(4) ●    ╲   ╱    ● Consult(5)
+                      ╲ ╱
+                        ●
+                    ERP/D365(8)
+
+Now draw the actual chart for this candidate/job using the real scores.
+
 IMPORTANCE LEVELS:
 - 🔴 **CRITICAL** = Must-have for the role (deal-breaker if missing)
 - 🟡 **IMPORTANT** = Significant impact on performance
@@ -183,7 +212,7 @@ ${JSON.stringify(resumeInfo, null, 2)}`;
 
         const stream = await anthropic.messages.create({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 2048,
+            max_tokens: 3000,
             system: fitSystemPrompt,
             messages: [
                 {
