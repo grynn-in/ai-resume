@@ -16,6 +16,7 @@ export default async (req) => {
         });
     }
 
+    try {
     const { message } = await req.json();
 
     if (!message) {
@@ -103,39 +104,28 @@ RULES:
 CANDIDATE RESUME:
 ${JSON.stringify(resumeData, null, 2)}`;
 
-    const stream = await anthropic.messages.stream({
+    const response = await anthropic.messages.create({
         model: 'claude-haiku-4-5-20251001',
         max_tokens: 3000,
         system: fitSystemPrompt,
         messages: [{ role: 'user', content: `Analyze this job description:\n\n${message}` }]
     });
 
-    const readable = new ReadableStream({
-        async start(controller) {
-            const encoder = new TextEncoder();
-            try {
-                for await (const chunk of stream) {
-                    if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
-                        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`));
-                    }
-                }
-                controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-            } catch (err) {
-                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
-            } finally {
-                controller.close();
-            }
-        }
-    });
+    const text = response.content[0].text;
+    const body = `data: ${JSON.stringify({ text })}\n\ndata: [DONE]\n\n`;
 
-    return new Response(readable, {
+    return new Response(body, {
         headers: {
             'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache',
-            'Connection': 'keep-alive',
             'Access-Control-Allow-Origin': '*'
         }
     });
+    } catch (err) {
+        return new Response(JSON.stringify({ error: err.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+    }
 };
 
 export const config = { path: '/api/fit' };

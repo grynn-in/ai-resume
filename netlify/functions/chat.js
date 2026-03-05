@@ -16,16 +16,17 @@ export default async (req) => {
         });
     }
 
-    const { message } = await req.json();
+    try {
+        const { message } = await req.json();
 
-    if (!message) {
-        return new Response(JSON.stringify({ error: 'Message is required' }), {
-            status: 400,
-            headers: { 'Content-Type': 'application/json' }
-        });
-    }
+        if (!message) {
+            return new Response(JSON.stringify({ error: 'Message is required' }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
 
-    const systemPrompt = `You are an AI representing a professional. Answer questions about their career naturally and conversationally.
+        const systemPrompt = `You are an AI representing a professional. Answer questions about their career naturally and conversationally.
 
 CRITICAL RULES:
 - Match response length to question complexity:
@@ -48,39 +49,28 @@ ${JSON.stringify(resumeData, null, 2)}
 
 Remember: Keep it SHORT and conversational - match the brevity of the question!`;
 
-    const stream = await anthropic.messages.stream({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 512,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: message }]
-    });
+        const response = await anthropic.messages.create({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 512,
+            system: systemPrompt,
+            messages: [{ role: 'user', content: message }]
+        });
 
-    const readable = new ReadableStream({
-        async start(controller) {
-            const encoder = new TextEncoder();
-            try {
-                for await (const chunk of stream) {
-                    if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
-                        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`));
-                    }
-                }
-                controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-            } catch (err) {
-                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
-            } finally {
-                controller.close();
+        const text = response.content[0].text;
+        const body = `data: ${JSON.stringify({ text })}\n\ndata: [DONE]\n\n`;
+
+        return new Response(body, {
+            headers: {
+                'Content-Type': 'text/event-stream',
+                'Access-Control-Allow-Origin': '*'
             }
-        }
-    });
-
-    return new Response(readable, {
-        headers: {
-            'Content-Type': 'text/event-stream',
-            'Cache-Control': 'no-cache',
-            'Connection': 'keep-alive',
-            'Access-Control-Allow-Origin': '*'
-        }
-    });
+        });
+    } catch (err) {
+        return new Response(JSON.stringify({ error: err.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+    }
 };
 
 export const config = { path: '/api/chat' };
