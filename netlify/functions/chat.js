@@ -22,7 +22,7 @@ export default async (req) => {
         if (!message) {
             return new Response(JSON.stringify({ error: 'Message is required' }), {
                 status: 400,
-                headers: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
             });
         }
 
@@ -56,14 +56,8 @@ Remember: Keep it SHORT and conversational - match the brevity of the question!`
             messages: [{ role: 'user', content: message }]
         });
 
-        const text = response.content[0].text;
-        const body = `data: ${JSON.stringify({ text })}\n\ndata: [DONE]\n\n`;
-
-        return new Response(body, {
-            headers: {
-                'Content-Type': 'text/event-stream',
-                'Access-Control-Allow-Origin': '*'
-            }
+        return new Response(JSON.stringify({ text: response.content[0].text }), {
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
         });
     } catch (err) {
         return new Response(JSON.stringify({ error: err.message }), {

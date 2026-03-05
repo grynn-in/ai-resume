@@ -111,14 +111,8 @@ ${JSON.stringify(resumeData, null, 2)}`;
         messages: [{ role: 'user', content: `Analyze this job description:\n\n${message}` }]
     });
 
-    const text = response.content[0].text;
-    const body = `data: ${JSON.stringify({ text })}\n\ndata: [DONE]\n\n`;
-
-    return new Response(body, {
-        headers: {
-            'Content-Type': 'text/event-stream',
-            'Access-Control-Allow-Origin': '*'
-        }
+    return new Response(JSON.stringify({ text: response.content[0].text }), {
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
     });
     } catch (err) {
         return new Response(JSON.stringify({ error: err.message }), {
