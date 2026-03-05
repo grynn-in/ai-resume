@@ -820,6 +820,12 @@
                     body: JSON.stringify({ message: msg })
                 });
 
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({ error: `HTTP ${res.status}` }));
+                    streamContent.textContent = '⚠️ ' + (err.error || `HTTP ${res.status}`);
+                    return;
+                }
+
                 const reader = res.body.getReader();
                 const decoder = new TextDecoder();
                 let fullText = '';
