@@ -104,7 +104,8 @@ test.describe('PRD14 - Fit Section Results + Reset', () => {
   test('#fitResults contains rendered markdown (h2, h3, or strong)', async ({ page }) => {
     page.setDefaultTimeout(30000);
     await page.goto('/');
-    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    const minimalJD = 'Head of Data Analytics. Lead enterprise data strategy and governance. Manage BI platforms and analytics portfolio. IPMA or PMP certification required. 10+ years experience in data leadership roles.';
+    await page.locator('#fitTextarea').fill(minimalJD);
     await page.locator('#fitAnalyzeBtn').click();
     await page.locator('#fitResults').waitFor({ state: 'visible', timeout: 25000 });
     const hasFormatting = await page.evaluate(() => {
@@ -289,12 +290,12 @@ test.describe('PRD6 - Skills Section', () => {
     await expect(page.locator('#skills')).toBeVisible();
   });
 
-  test('three skill columns visible at 1280px', async ({ page }) => {
+  test('six skill columns visible at 1280px (3 per group)', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
-    const cols = page.locator('#skills .skill-col, #skills .skills-col');
+    const cols = page.locator('#skills .skill-col');
     const count = await cols.count();
-    expect(count).toBe(3);
+    expect(count).toBe(6);
   });
 
   test('Data & Governance, Technology & Analytics, Leadership & Change headings present', async ({ page }) => {

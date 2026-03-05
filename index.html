@@ -434,6 +434,26 @@
         .skill-col-icon.finance { background: rgba(39,174,96,0.15); }
         .skill-col-icon.tech { background: rgba(230,126,34,0.15); }
         .skill-col-icon.lead { background: rgba(155,89,182,0.15); }
+        .skill-col-icon.data { background: rgba(52,152,219,0.15); }
+        .skill-col-icon.gov { background: rgba(231,76,60,0.15); }
+        .skill-col-icon.change { background: rgba(241,196,15,0.15); }
+
+        .skills-group-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--brand);
+            margin: 0 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(230,126,34,0.2);
+        }
+
+        .skills-group {
+            margin-bottom: 36px;
+        }
+
+        .skills-group:last-child { margin-bottom: 0; }
 
         .skill-col-title {
             font-size: 16px;
@@ -457,8 +477,104 @@
 
         .skill-item:last-child { margin-bottom: 0; }
 
+        /* ── EDUCATION & CERTIFICATIONS ── */
+        #education { background: var(--bg); }
+        #certifications { background: var(--surface); }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .edu-card {
+            background: var(--card);
+            border: 1px solid rgba(230,126,34,0.12);
+            border-radius: 12px;
+            padding: 20px 22px;
+        }
+
+        .edu-degree {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .edu-institution {
+            font-size: 14px;
+            color: var(--brand);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .edu-year {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .edu-focus {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border: 1px solid rgba(230,126,34,0.12);
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .cert-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .cert-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .cert-issuer {
+            font-size: 13px;
+            color: var(--brand);
+            margin-bottom: 2px;
+        }
+
+        .cert-year {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .cert-new {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--bg);
+            background: var(--brand);
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.4px;
+        }
+
         /* ── FIT SECTION ── */
-        #fit { background: var(--surface); }
+        #fit { background: var(--bg); }
 
         .fit-textarea {
             width: 100%;
@@ -1144,6 +1260,7 @@
     <ul class="nav-links">
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#fit">Fit</a></li>
         <li><a href="#" onclick="openContactModal(); return false;">Connect</a></li>
     </ul>
@@ -1206,7 +1323,7 @@
                     <div class="exp-role">Sr. Consultant, ERP &amp; Data Integration Architecture</div>
                     <div class="exp-dates">
                         Jan 2022 – Present
-                        <span class="badge">3+ yrs</span>
+                        <span class="badge">4+ yrs</span>
                         <span>Zurich, Switzerland</span>
                     </div>
                 </div>
@@ -1375,47 +1492,191 @@
             <h2>Skills</h2>
             <div class="section-line"></div>
         </div>
-        <div class="skills-grid">
-            <!-- Data & Governance -->
-            <div class="skill-col">
-                <div class="skill-col-header">
-                    <div class="skill-col-icon finance">📊</div>
-                    <div class="skill-col-title">Data &amp; Governance</div>
+        <!-- D&A / Digital Transformation profile -->
+        <div class="skills-group">
+            <p class="skills-group-label">📊 Data &amp; Analytics / Digital Transformation</p>
+            <div class="skills-grid">
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon data">🗺️</div>
+                        <div class="skill-col-title">D&amp;A Strategy &amp; Governance</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">D&amp;A Strategy &amp; Portfolio Roadmaps</li>
+                        <li class="skill-item">Data Governance Frameworks</li>
+                        <li class="skill-item">CMMI-L3 &amp; ISO 27001</li>
+                        <li class="skill-item">Strategic KPI &amp; Scorecard Design</li>
+                        <li class="skill-item">IPMA Level C Programme Management</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li class="skill-item">D&A Strategy &amp; Vision</li>
-                    <li class="skill-item">Portfolio &amp; Programme Management</li>
-                    <li class="skill-item">Governance (CMMI-L3, ISO 27001)</li>
-                    <li class="skill-item">Performance Scorecards &amp; KPIs</li>
-                </ul>
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon tech">⚙️</div>
+                        <div class="skill-col-title">Analytics &amp; BI Technology</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">Enterprise BI/DWH (design &amp; build)</li>
+                        <li class="skill-item">Alteryx / Workato automation</li>
+                        <li class="skill-item">ML / Predictive Analysis (Udacity)</li>
+                        <li class="skill-item">Agentic AI (Accenture/Avanade, 2026)</li>
+                        <li class="skill-item">D365 F&amp;O &amp; ERP integrations</li>
+                    </ul>
+                </div>
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon change">🎯</div>
+                        <div class="skill-col-title">Change &amp; People Leadership</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">Data Literacy Programmes (400+ people)</li>
+                        <li class="skill-item">C-level &amp; Board Stakeholder Engagement</li>
+                        <li class="skill-item">Vendor &amp; Budget Management ($20M RFP)</li>
+                        <li class="skill-item">AGILE/SCRUM delivery</li>
+                        <li class="skill-item">International Leadership (3 continents)</li>
+                    </ul>
+                </div>
             </div>
-            <!-- Technology & Analytics -->
-            <div class="skill-col">
-                <div class="skill-col-header">
-                    <div class="skill-col-icon tech">⚙️</div>
-                    <div class="skill-col-title">Technology &amp; Analytics</div>
+        </div>
+
+        <!-- Finance / Controlling profile -->
+        <div class="skills-group">
+            <p class="skills-group-label">💼 Finance &amp; Controlling</p>
+            <div class="skills-grid">
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon finance">📈</div>
+                        <div class="skill-col-title">Financial Controlling</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">FP&amp;A, SG&amp;A &amp; Supply Chain Controlling</li>
+                        <li class="skill-item">CAPEX Governance ($40M p.a., 26 sites)</li>
+                        <li class="skill-item">Monte-Carlo · NPV · DCF · MIRR modelling</li>
+                        <li class="skill-item">M&amp;A Due Diligence &amp; Integration</li>
+                        <li class="skill-item">Working Capital Optimisation</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li class="skill-item">Enterprise BI/DWH</li>
-                    <li class="skill-item">ERP (D365, ERPNext)</li>
-                    <li class="skill-item">Alteryx / Workato / ML</li>
-                    <li class="skill-item">AGILE/SCRUM</li>
-                    <li class="skill-item">Agentic AI</li>
-                </ul>
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon lead">🔄</div>
+                        <div class="skill-col-title">ERP &amp; Finance Technology</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">D365 F&amp;O (finance modules)</li>
+                        <li class="skill-item">P2P / O2C / S2C processes</li>
+                        <li class="skill-item">ISO 20022 treasury integration</li>
+                        <li class="skill-item">Swiss QR &amp; EU e-invoicing EN16931</li>
+                        <li class="skill-item">Ariba, ERPNext, ERP migrations</li>
+                    </ul>
+                </div>
+                <div class="skill-col">
+                    <div class="skill-col-header">
+                        <div class="skill-col-icon gov">🤝</div>
+                        <div class="skill-col-title">Business Partnering</div>
+                    </div>
+                    <ul>
+                        <li class="skill-item">C-level &amp; Board Executive Reporting</li>
+                        <li class="skill-item">$250M+ P&amp;L Governance</li>
+                        <li class="skill-item">Procurement Finance &amp; RFP Leadership</li>
+                        <li class="skill-item">FX Risk Management</li>
+                        <li class="skill-item">Spend Analytics &amp; BI Platforms</li>
+                    </ul>
+                </div>
             </div>
-            <!-- Leadership & Change -->
-            <div class="skill-col">
-                <div class="skill-col-header">
-                    <div class="skill-col-icon lead">🎯</div>
-                    <div class="skill-col-title">Leadership &amp; Change</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+    <div class="section-wrap">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="edu-grid">
+            <div class="edu-card">
+                <div class="edu-degree">Predictive Analysis / Machine Learning Nanodegree</div>
+                <div class="edu-institution">Udacity</div>
+                <div class="edu-year">2019 · 4 months</div>
+                <div class="edu-focus">Supervised &amp; unsupervised learning, Python, scikit-learn, neural networks</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">Digital Transformation Strategies</div>
+                <div class="edu-institution">Emeritus / MIT Sloan / Columbia University</div>
+                <div class="edu-year">2018 · 3 months</div>
+                <div class="edu-focus">Digital strategy, platform economics, transformation leadership</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">MBA — Master of Business Administration</div>
+                <div class="edu-institution">University of St. Gallen (HSG)</div>
+                <div class="edu-year">2008–2009 · St. Gallen, Switzerland</div>
+                <div class="edu-focus">Strategy, Finance, International Management. Ranked #1 business school in DACH region.</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-degree">B.Eng Electronics &amp; Telecommunications</div>
+                <div class="edu-institution">Mangalore University</div>
+                <div class="edu-year">1993–1997 · India</div>
+                <div class="edu-focus">Electronics, signal processing, software fundamentals</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certifications">
+    <div class="section-wrap">
+        <div class="section-header">
+            <h2>Certifications</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-icon">🤖</div>
+                <div>
+                    <div class="cert-name">Agentic AI <span class="cert-new">NEW</span></div>
+                    <div class="cert-issuer">Accenture / Avanade</div>
+                    <div class="cert-year">2026 · AI agents, orchestration, enterprise AI deployment</div>
                 </div>
-                <ul>
-                    <li class="skill-item">Data Literacy &amp; Change Management</li>
-                    <li class="skill-item">Stakeholder Engagement (C-level)</li>
-                    <li class="skill-item">Vendor &amp; Budget Management</li>
-                    <li class="skill-item">IPMA Level C PM</li>
-                    <li class="skill-item">International (3 continents)</li>
-                </ul>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📋</div>
+                <div>
+                    <div class="cert-name">IPMA Level C — Certified Project Manager</div>
+                    <div class="cert-issuer">International Project Management Association (Swiss)</div>
+                    <div class="cert-year">2019</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">📊</div>
+                <div>
+                    <div class="cert-name">Predictive Analysis / ML Nanodegree</div>
+                    <div class="cert-issuer">Udacity</div>
+                    <div class="cert-year">2019</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔄</div>
+                <div>
+                    <div class="cert-name">Digital Transformation Strategies</div>
+                    <div class="cert-issuer">Emeritus / MIT Sloan / Columbia</div>
+                    <div class="cert-year">2018</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">⚙️</div>
+                <div>
+                    <div class="cert-name">CMMI-Level 3 Process Governance</div>
+                    <div class="cert-issuer">Adaequare / SEI</div>
+                    <div class="cert-year">2007</div>
+                </div>
+            </div>
+            <div class="cert-card">
+                <div class="cert-icon">🔒</div>
+                <div>
+                    <div class="cert-name">ISO 27001 Information Security Management</div>
+                    <div class="cert-issuer">Adaequare</div>
+                    <div class="cert-year">2007</div>
+                </div>
             </div>
         </div>
     </div>
