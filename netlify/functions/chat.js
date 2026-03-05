@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-const resumeData = require('../../backend/resume-data.json');
+const resumeData = require('./resume-data.json');
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export default async (req) => {
