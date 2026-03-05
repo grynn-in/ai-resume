@@ -59,6 +59,38 @@ test.describe('PRD12 - marked.js + Fit Nav Link', () => {
   });
 });
 
+// ─── PRD 13: Fit Section Input State ───────────────────────────────────────
+test.describe('PRD13 - Fit Section Input State', () => {
+  test('#fit section is visible', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('#fit')).toBeVisible();
+  });
+
+  test('#fitTextarea has placeholder containing "job description"', async ({ page }) => {
+    await page.goto('/');
+    const placeholder = await page.locator('#fitTextarea').getAttribute('placeholder');
+    expect(placeholder.toLowerCase()).toContain('job description');
+  });
+
+  test('#fitAnalyzeBtn is disabled initially', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('#fitAnalyzeBtn')).toBeDisabled();
+  });
+
+  test('char count #fitCharCount updates on input', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('hello');
+    const count = await page.locator('#fitCharCount').textContent();
+    expect(count).toContain('5');
+  });
+
+  test('button enables after typing 50+ chars', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(50));
+    await expect(page.locator('#fitAnalyzeBtn')).toBeEnabled();
+  });
+});
+
 // ─── PRD 2: CSS Foundation ─────────────────────────────────────────────────
 test.describe('PRD2 - CSS Foundation', () => {
   test('body background-color is #1a1a2e', async ({ page }) => {
