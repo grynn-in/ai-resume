@@ -371,12 +371,13 @@ test.describe('PRD7 - Chat FAB + Modal', () => {
     await expect(modal).toBeHidden();
   });
 
-  test('Chat and Fit Assessment tabs present in modal', async ({ page }) => {
+  test('Chat tab present, no Fit tab in modal', async ({ page }) => {
     await page.goto('/');
     await page.locator('#chatFab, .chat-fab').click();
     const modal = page.locator('#chatModal, .chat-modal');
     await expect(modal).toContainText(/chat/i);
-    await expect(modal).toContainText(/fit/i);
+    const fitTab = modal.locator('.chat-tab', { hasText: /fit assessment/i });
+    await expect(fitTab).toHaveCount(0);
   });
 });
 
@@ -491,5 +492,38 @@ test.describe('PRD10 - Mobile Responsive', () => {
     await expect(modal).toBeVisible();
     const box = await modal.boundingBox();
     expect(box.width).toBeGreaterThanOrEqual(300);
+  });
+});
+
+// ─── PRD 15: Remove Fit Tab from Chat Modal ─────────────────────────────────
+test.describe('PRD15 - Remove Fit Tab from Chat Modal', () => {
+  test('chat modal contains Chat tab', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#chatFab, .chat-fab').click();
+    const modal = page.locator('#chatModal, .chat-modal');
+    await expect(modal.locator('.chat-tab', { hasText: /chat/i })).toBeVisible();
+  });
+
+  test('chat modal does NOT contain Fit Assessment tab button', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#chatFab, .chat-fab').click();
+    const modal = page.locator('#chatModal, .chat-modal');
+    const fitTab = modal.locator('.chat-tab', { hasText: /fit assessment/i });
+    await expect(fitTab).toHaveCount(0);
+  });
+
+  test('sendMessage uses /api/chat, not /api/fit', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    const requests = [];
+    page.on('request', req => {
+      if (req.url().includes('/api/')) requests.push(req.url());
+    });
+    await page.locator('#chatFab, .chat-fab').click();
+    await page.locator('#userInput').fill('test message');
+    await page.locator('#sendButton').click();
+    await page.waitForTimeout(2000);
+    expect(requests.some(url => url.includes('/api/chat'))).toBe(true);
+    expect(requests.every(url => !url.includes('/api/fit'))).toBe(true);
   });
 });

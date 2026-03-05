@@ -1456,8 +1456,7 @@
             <button class="modal-close" onclick="toggleChatModal()">✕</button>
         </div>
         <div class="chat-tabs">
-            <button class="chat-tab active" onclick="setMode('chat', this)">💬 Chat</button>
-            <button class="chat-tab" onclick="setMode('fit', this)">📋 Fit Assessment</button>
+            <button class="chat-tab active">💬 Chat</button>
         </div>
         <div class="chat-status-row">
             <div class="status-item">
@@ -1553,23 +1552,7 @@
         }
     }
 
-    // ── CHAT MODE ──
-    let currentMode = 'chat';
     let contactNudgeShown = false;
-
-    function setMode(mode, btn) {
-        currentMode = mode;
-        document.querySelectorAll('.chat-tab').forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        const input = document.getElementById('userInput');
-        if (mode === 'chat') {
-            input.placeholder = 'Ask about my experience…';
-            document.querySelector('.chat-modal-title').textContent = '🤖 Ask Me Anything';
-        } else {
-            input.placeholder = 'Paste a job description…';
-            document.querySelector('.chat-modal-title').textContent = '📋 Job Fit Assessment';
-        }
-    }
 
     // ── FIT SECTION ──
     function updateFitCount(el) {
@@ -1639,15 +1622,14 @@
         // Create streaming bot message
         const botMsg = document.createElement('div');
         botMsg.className = 'message bot';
-        const contentClass = currentMode === 'fit' ? 'message-content fit-analysis' : 'message-content';
+        const contentClass = 'message-content';
         botMsg.innerHTML = `<div class="msg-avatar">🤖</div><div class="${contentClass}" id="streaming"><div class="loading-dots"><span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span></div></div>`;
         chatContainer.appendChild(botMsg);
         chatContainer.scrollTop = chatContainer.scrollHeight;
         const streamContent = document.getElementById('streaming');
 
         try {
-            const apiUrl = currentMode === 'fit' ? FIT_API_URL : API_URL;
-            const res = await fetch(apiUrl, {
+            const res = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: msg })
@@ -1661,30 +1643,11 @@
             }
 
             const fullText = data.text || '';
-
-            if (currentMode === 'fit' && fullText) {
-                const lines = fullText.split('\n').filter(l => l.trim());
-                let html = '';
-                let inList = false;
-                lines.forEach(line => {
-                    const t = line.trim();
-                    if (t.match(/^[-•*]\s/) || t.match(/^\d+\.\s/)) {
-                        if (!inList) { html += '<ul>'; inList = true; }
-                        html += `<li>${escHtml(t.replace(/^[-•*]\s/, '').replace(/^\d+\.\s/, ''))}</li>`;
-                    } else if (t.length > 0) {
-                        if (inList) { html += '</ul>'; inList = false; }
-                        html += `<p>${escHtml(t)}</p>`;
-                    }
-                });
-                if (inList) html += '</ul>';
-                streamContent.innerHTML = html;
-            } else {
-                streamContent.textContent = fullText;
-            }
+            streamContent.textContent = fullText;
 
             streamContent.removeAttribute('id');
             chatContainer.scrollTop = chatContainer.scrollHeight;
-            if (currentMode === 'chat') showChatNudge();
+            showChatNudge();
         } catch (err) {
             streamContent.textContent = 'Error: ' + err.message;
         } finally {
