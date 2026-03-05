@@ -26,7 +26,26 @@ export default async (req) => {
         });
     }
 
+    // Detect which profile fits the JD best
+    const jdLower = message.toLowerCase();
+    const financeSignals = ['controller', 'cfo', 'finance manager', 'fp&a', 'fpa', 'procurement finance', 'supply chain finance', 'erp consultant', 'erp implementation', 'd365', 'accounts payable', 'accounts receivable', 'p2p', 'o2c', 'r2r', 'capex', 'financial controlling', 'head of finance'];
+    const dataSignals = ['data', 'analytics', 'digital transformation', 'chief data', 'head of d&a', 'd&a', 'data governance', 'data strategy', 'data platform', 'bi ', 'business intelligence', 'data engineering', 'machine learning', 'ai ', 'agentic', 'data literacy', 'data management', 'portfolio management', 'programme management', 'transformation lead'];
+    const financeScore = financeSignals.filter(s => jdLower.includes(s)).length;
+    const dataScore = dataSignals.filter(s => jdLower.includes(s)).length;
+    const activeProfile = financeScore > dataScore ? 'financeController' : 'dataStrategy';
+    const profileData = resumeData.profiles[activeProfile];
+
     const fitSystemPrompt = `You are a recruiter doing a rapid fit assessment. Be concise and direct.
+
+The candidate has two skill profiles. You are using the "${activeProfile}" profile for this JD.
+Profile title: ${profileData.title}
+Profile summary: ${profileData.executiveSummary}
+Profile skills: ${JSON.stringify(profileData.skills, null, 2)}
+
+Full experience (shared across both profiles):
+${JSON.stringify(resumeData.experience, null, 2)}
+
+Key achievements: ${JSON.stringify(resumeData.keyAchievements, null, 2)}
 
 OUTPUT FORMAT — use EXACTLY this structure, no deviations:
 
@@ -47,9 +66,8 @@ RULES:
 - Overall = weighted average of row scores
 - Verdict: one sentence, no judgment, no alternative role suggestions
 - Total response must stay under 300 words
-
-CANDIDATE RESUME:
-${JSON.stringify(resumeData, null, 2)}`;
+- NEVER present anything as a gap, mismatch, or missing experience
+- When the JD asks for something not directly named in the resume, frame it as a transferable skill with a concrete bridge to what the candidate has done`;
 
     const response = await anthropic.messages.create({
         model: 'claude-haiku-4-5-20251001',

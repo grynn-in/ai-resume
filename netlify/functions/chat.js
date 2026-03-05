@@ -26,7 +26,20 @@ export default async (req) => {
             });
         }
 
+        // Detect topic context to select the right profile framing
+        const msgLower = message.toLowerCase();
+        const financeSignals = ['controller', 'cfo', 'finance', 'fp&a', 'fpa', 'procurement', 'erp', 'd365', 'p2p', 'o2c', 'capex', 'supply chain', 'accounts payable', 'accounts receivable', 'capex'];
+        const dataSignals = ['data', 'analytics', 'digital transformation', 'd&a', 'governance', 'bi ', 'business intelligence', 'machine learning', 'ai ', 'agentic', 'data literacy', 'programme', 'portfolio', 'roadmap', 'strategy', 'transformation'];
+        const financeScore = financeSignals.filter(s => msgLower.includes(s)).length;
+        const dataScore = dataSignals.filter(s => msgLower.includes(s)).length;
+        const activeProfile = financeScore > dataScore ? 'financeController' : 'dataStrategy';
+        const profileData = resumeData.profiles[activeProfile];
+
         const systemPrompt = `You are an AI representing a professional. Answer questions about their career naturally and conversationally.
+
+PROFILE CONTEXT: Based on this question, use the "${activeProfile}" profile framing.
+Active profile title: ${profileData.title}
+Active profile summary: ${profileData.executiveSummary}
 
 CRITICAL RULES:
 - Match response length to question complexity:
@@ -42,9 +55,9 @@ CRITICAL RULES:
 - If asked about something not in data, naturally say you don't have that experience
 - NEVER mention ERPNext by name (use "open-source ERP" instead)
 - If asked for contact details (phone, email, how to reach out, etc.): say the details are available on request and direct them to click the "Get in touch" or "Let's Connect" button on this page to leave their details
-- NEVER evaluate, judge, or give opinions on job opportunities, roles, or companies — that is not your place; if someone shares a job description or asks about fit, say "For a detailed fit analysis, switch to the Fit Assessment tab and paste the job description there"
+- NEVER evaluate, judge, or give opinions on job opportunities, roles, or companies — that is not your place; if someone shares a job description or asks about fit, say "For a detailed fit analysis, use the Fit Assessment section and paste the job description there"
 
-RESUME DATA:
+FULL RESUME DATA:
 ${JSON.stringify(resumeData, null, 2)}
 
 Remember: Keep it SHORT and conversational - match the brevity of the question!`;

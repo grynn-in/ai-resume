@@ -297,9 +297,9 @@ test.describe('PRD6 - Skills Section', () => {
     expect(count).toBe(3);
   });
 
-  test('Finance, Technology, Leadership headings present', async ({ page }) => {
+  test('Data & Governance, Technology & Analytics, Leadership & Change headings present', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('#skills')).toContainText('Finance');
+    await expect(page.locator('#skills')).toContainText('Data');
     await expect(page.locator('#skills')).toContainText('Technology');
     await expect(page.locator('#skills')).toContainText('Leadership');
   });
