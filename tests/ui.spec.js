@@ -31,6 +31,19 @@ test.describe('PRD1 - API', () => {
   });
 });
 
+// ─── PRD 11: Favicon ───────────────────────────────────────────────────────
+test.describe('PRD11 - Favicon', () => {
+  test('page has favicon link with SVG href', async ({ page }) => {
+    await page.goto('/');
+    const href = await page.evaluate(() => {
+      const link = document.querySelector('link[rel="icon"]');
+      return link ? link.getAttribute('href') : null;
+    });
+    expect(href).toBeTruthy();
+    expect(href).toContain('svg');
+  });
+});
+
 // ─── PRD 2: CSS Foundation ─────────────────────────────────────────────────
 test.describe('PRD2 - CSS Foundation', () => {
   test('body background-color is #1a1a2e', async ({ page }) => {
