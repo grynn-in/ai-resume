@@ -1,0 +1,85 @@
+import Anthropic from '@anthropic-ai/sdk';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const resumeData = JSON.parse(readFileSync(join(__dirname, '../../backend/resume-data.json'), 'utf-8'));
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+
+export default async (req) => {
+    if (req.method === 'OPTIONS') {
+        return new Response('', {
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS'
+            }
+        });
+    }
+
+    const { message } = await req.json();
+
+    if (!message) {
+        return new Response(JSON.stringify({ error: 'Message is required' }), {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
+    const systemPrompt = `You are an AI representing a professional. Answer questions about their career naturally and conversationally.
+
+CRITICAL RULES:
+- Match response length to question complexity:
+  * Simple questions (where/what/when): 1 sentence
+  * Specific questions (tell me about X): 2-3 sentences max
+  * Broad questions (describe your background): 3-4 sentences max
+- Write in PARAGRAPH format (not bullet points or lists)
+- IMPORTANT: Separate paragraphs with double line breaks (\\n\\n) for readability
+- NO copy-pasting from data
+- Use "I" perspective (first person)
+- Be conversational and natural, like having a real conversation
+- Focus on KEY highlights only - be selective
+- If asked about something not in data, naturally say you don't have that experience
+- NEVER mention ERPNext by name (use "open-source ERP" instead)
+- If asked for contact details (phone, email, how to reach out, etc.): say the details are available on request and direct them to click the "Get in touch" or "Let's Connect" button on this page to leave their details
+- NEVER evaluate, judge, or give opinions on job opportunities, roles, or companies — that is not your place; if someone shares a job description or asks about fit, say "For a detailed fit analysis, switch to the Fit Assessment tab and paste the job description there"
+
+RESUME DATA:
+${JSON.stringify(resumeData, null, 2)}
+
+Remember: Keep it SHORT and conversational - match the brevity of the question!`;
+
+    const stream = await anthropic.messages.stream({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 512,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: message }]
+    });
+
+    const readable = new ReadableStream({
+        async start(controller) {
+            const encoder = new TextEncoder();
+            for await (const chunk of stream) {
+                if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
+                    controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`));
+                    await new Promise(r => setTimeout(r, 30));
+                }
+            }
+            controller.enqueue(encoder.encode('data: [DONE]\n\n'));
+            controller.close();
+        }
+    });
+
+    return new Response(readable, {
+        headers: {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive',
+            'Access-Control-Allow-Origin': '*'
+        }
+    });
+};
+
+export const config = { path: '/api/chat' };
