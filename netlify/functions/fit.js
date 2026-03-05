@@ -1,10 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const resumeData = JSON.parse(readFileSync(join(__dirname, '../../backend/resume-data.json'), 'utf-8'));
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const resumeData = require('../../backend/resume-data.json');
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export default async (req) => {
