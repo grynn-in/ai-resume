@@ -1,0 +1,12 @@
+{
+  "name": "deepak-cv",
+  "version": "1.0.0",
+  "description": "AI-powered CV for Deepak Pai",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
