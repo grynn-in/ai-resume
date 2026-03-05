@@ -44,6 +44,21 @@ test.describe('PRD11 - Favicon', () => {
   });
 });
 
+// ─── PRD 12: marked.js + Navbar Fit link ───────────────────────────────────
+test.describe('PRD12 - marked.js + Fit Nav Link', () => {
+  test('window.marked is defined', async ({ page }) => {
+    await page.goto('/');
+    const markedDefined = await page.evaluate(() => typeof window.marked !== 'undefined');
+    expect(markedDefined).toBe(true);
+  });
+
+  test('navbar contains "Fit" link', async ({ page }) => {
+    await page.goto('/');
+    const nav = page.locator('nav, .navbar').first();
+    await expect(nav).toContainText('Fit');
+  });
+});
+
 // ─── PRD 2: CSS Foundation ─────────────────────────────────────────────────
 test.describe('PRD2 - CSS Foundation', () => {
   test('body background-color is #1a1a2e', async ({ page }) => {
