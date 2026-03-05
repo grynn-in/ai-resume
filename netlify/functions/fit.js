@@ -106,7 +106,7 @@ ${JSON.stringify(resumeData, null, 2)}`;
 
     const response = await anthropic.messages.create({
         model: 'claude-haiku-4-5-20251001',
-        max_tokens: 3000,
+        max_tokens: 1200,
         system: fitSystemPrompt,
         messages: [{ role: 'user', content: `Analyze this job description:\n\n${message}` }]
     });
