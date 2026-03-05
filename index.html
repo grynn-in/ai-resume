@@ -221,6 +221,37 @@
             color: #ffffff;
         }
 
+        .status-bar {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #555;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #333;
+            flex-shrink: 0;
+        }
+
+        .status-dot.online { background: #22c55e; box-shadow: 0 0 4px #22c55e88; }
+        .status-dot.offline { background: #ef4444; }
+        .status-dot.checking { background: #f59e0b; animation: pulse 1s infinite; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
         .chat-header p {
             font-size: 14px;
             color: #a0a0a0;
@@ -610,6 +641,16 @@
                     <button class="mode-btn active" onclick="setMode('chat')">💬 Chat</button>
                     <button class="mode-btn" onclick="setMode('fit')">📋 Fit Assessment</button>
                 </div>
+                <div class="status-bar">
+                    <div class="status-item">
+                        <div class="status-dot online"></div>
+                        <span>Site online</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-dot checking" id="aiStatusDot"></div>
+                        <span id="aiStatusText">Connecting to AI...</span>
+                    </div>
+                </div>
             </div>
 
             <div class="chat-container" id="chatContainer">
@@ -663,6 +704,26 @@
         const API_URL = '/api/chat';
         const FIT_API_URL = '/api/fit';
         const CONTACT_API_URL = '/api/contact';
+
+        async function checkStatus() {
+            const dot = document.getElementById('aiStatusDot');
+            const text = document.getElementById('aiStatusText');
+            try {
+                const res = await fetch('/api/health');
+                const data = await res.json();
+                if (data.ai) {
+                    dot.className = 'status-dot online';
+                    text.textContent = 'AI connected';
+                } else {
+                    dot.className = 'status-dot offline';
+                    text.textContent = 'AI not configured';
+                }
+            } catch {
+                dot.className = 'status-dot offline';
+                text.textContent = 'AI unavailable';
+            }
+        }
+        checkStatus();
         let contactNudgeShown = false;
         const chatContainer = document.getElementById('chatContainer');
         const userInput = document.getElementById('userInput');
