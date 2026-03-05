@@ -1,8 +1,6 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const resumeData = require('./resume-data.json');
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 export default async (req) => {
     if (req.method === 'OPTIONS') {
@@ -17,6 +15,8 @@ export default async (req) => {
     }
 
     try {
+    const resumeData = JSON.parse(readFileSync(join(process.cwd(), 'backend/resume-data.json'), 'utf-8'));
+    const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
     const { message } = await req.json();
 
     if (!message) {
