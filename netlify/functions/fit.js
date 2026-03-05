@@ -113,14 +113,18 @@ ${JSON.stringify(resumeData, null, 2)}`;
     const readable = new ReadableStream({
         async start(controller) {
             const encoder = new TextEncoder();
-            for await (const chunk of stream) {
-                if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
-                    controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`));
-                    await new Promise(r => setTimeout(r, 30));
+            try {
+                for await (const chunk of stream) {
+                    if (chunk.type === 'content_block_delta' && chunk.delta.type === 'text_delta') {
+                        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: chunk.delta.text })}\n\n`));
+                    }
                 }
+                controller.enqueue(encoder.encode('data: [DONE]\n\n'));
+            } catch (err) {
+                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: err.message })}\n\n`));
+            } finally {
+                controller.close();
             }
-            controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-            controller.close();
         }
     });
 
