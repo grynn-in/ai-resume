@@ -91,6 +91,59 @@ test.describe('PRD13 - Fit Section Input State', () => {
   });
 });
 
+// ─── PRD 14: Fit Section Results + Reset ───────────────────────────────────
+test.describe('PRD14 - Fit Section Results + Reset', () => {
+  test('clicking Analyze with 50+ chars shows results', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    await page.locator('#fitAnalyzeBtn').click();
+    await expect(page.locator('#fitResults')).toBeVisible({ timeout: 25000 });
+  });
+
+  test('#fitResults contains rendered markdown (h2, h3, or strong)', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    await page.locator('#fitAnalyzeBtn').click();
+    await page.locator('#fitResults').waitFor({ state: 'visible', timeout: 25000 });
+    const hasFormatting = await page.evaluate(() => {
+      const el = document.getElementById('fitResultContent');
+      return el.querySelector('h2, h3, strong') !== null;
+    });
+    expect(hasFormatting).toBe(true);
+  });
+
+  test('#fitInputArea is hidden during results state', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    await page.locator('#fitAnalyzeBtn').click();
+    await page.locator('#fitResults').waitFor({ state: 'visible', timeout: 25000 });
+    await expect(page.locator('#fitInputArea')).toBeHidden();
+  });
+
+  test('"Try another" button resets to input state', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    await page.locator('#fitAnalyzeBtn').click();
+    await page.locator('#fitResults').waitFor({ state: 'visible', timeout: 25000 });
+    await page.locator('#fitResetBtn').click();
+    await expect(page.locator('#fitInputArea')).toBeVisible();
+  });
+
+  test('#fitInputArea visible again after reset', async ({ page }) => {
+    page.setDefaultTimeout(30000);
+    await page.goto('/');
+    await page.locator('#fitTextarea').fill('a'.repeat(60));
+    await page.locator('#fitAnalyzeBtn').click();
+    await page.locator('#fitResults').waitFor({ state: 'visible', timeout: 25000 });
+    await page.locator('#fitResetBtn').click();
+    await expect(page.locator('#fitResults')).toBeHidden();
+  });
+});
+
 // ─── PRD 2: CSS Foundation ─────────────────────────────────────────────────
 test.describe('PRD2 - CSS Foundation', () => {
   test('body background-color is #1a1a2e', async ({ page }) => {
